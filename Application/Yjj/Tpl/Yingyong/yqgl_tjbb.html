@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <script>
+        //10px 1rem;
+        !function(){function a(){if(document.documentElement.clientWidth<600){document.documentElement.style.fontSize=document.documentElement.clientWidth/32+"px"}else{document.documentElement.style.fontSize="16.875px"}}var b=null;window.addEventListener("resize",function(){clearTimeout(b),b=setTimeout(a,300)},!1),a()}(window);
+    </script>
+
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="__ROOT__/Style/css/normalize.css">
+        <link rel="stylesheet" href="__ROOT__/Style/css/main.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Style/css/css2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Style/css/swiper.min.css">
+        <script src="__ROOT__/Style/js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body class='bc1'>
+        <!-- <div class='loading'><img src="__ROOT__/Style/img/loading_more.gif" style='width:auto'></div> -->
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class='warp ' style='overflow-y: auto;'>
+            <div id="leftTabBox" class="tabBox vertical-view">
+               
+                <div class='bd flex-z swiper-container poi'>
+                    <div class='swiper-wrapper'>
+                        <div class='swiper-slide tab-content-1'>
+                            
+                            <div class='tit'>
+                                <h3 style='margin-bottom:0'>今日舆情统计</h3>
+                            </div>
+                            <div id="jryq" style="height: 23rem;margin-bottom:2.5rem"></div>
+                            <div class='tit'>
+                                <h3 style='margin-bottom:0'>本周舆情统计</h3>
+                            </div>
+                            <div id="container" style="height: 23rem;margin-bottom:2.5rem"></div>
+                            <div class='tit'>
+                                <h3 style='margin-bottom:0'>本月舆情来源统计</h3>
+                            </div>
+                            <div id="byue" style="height: 23rem;margin-bottom:2.5rem"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src='__ROOT__/Style/js/jquery-1.11.2.min.js'></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script src="__ROOT__/Style/js/plugins.js"></script>
+        <script src="__ROOT__/Style/js/main.js"></script>
+        <script type="text/javascript">
+        $('.loading').hide();
+        </script>
+        <script type="text/javascript">
+            var dom = document.getElementById("jryq");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                color: ['#3398DB'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },legend: {
+                    data:['已处理','未处理','处理中']
+                },
+                grid: {
+                	top:'4%',
+                    left: '3%',
+                    right: '6%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['已处理','未处理','处理中'],
+                    axisTick: {
+                    alignWithLabel: true
+                }
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name:'数量',
+                        type:'bar',
+                        barWidth: '60%',
+                        data:[<{$yes_tian}>, <{$ing_tian}>, <{$no_tian}>]
+                    }
+                ]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+               <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['已完成','处理中','待处理']
+                },
+                grid: {
+                	top:'10%',
+                    left: '3%',
+                    right: '6%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['<{$day.1}>','<{$day.2}>','<{$day.3}>','<{$day.4}>','<{$day.5}>','<{$day.6}>','<{$day.7}>']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name:'已完成',
+                        type:'line',
+                        stack: '总量',
+                        data:[<{$week.1.yes}>, <{$week.2.yes}>, <{$week.3.yes}>, <{$week.4.yes}>, <{$week.5.yes}>, <{$week.6.yes}>, <{$week.7.yes}>]
+                    },
+                    {
+                        name:'处理中',
+                        type:'line',
+                        stack: '总量',
+                        data:[<{$week.1.ing}>, <{$week.2.ing}>, <{$week.3.ing}>, <{$week.4.ing}>, <{$week.5.ing}>, <{$week.6.ing}>, <{$week.7.ing}>]
+                    },
+                    {
+                        name:'待处理',
+                        type:'line',
+                        stack: '总量',
+                        data:[<{$week.1.no}>, <{$week.2.no}>, <{$week.3.no}>, <{$week.4.no}>, <{$week.5.no}>, <{$week.6.no}>, <{$week.7.no}>]
+                    }
+                    
+                ]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+               <script type="text/javascript">
+            var dom = document.getElementById("byue");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                color: ['#3398DB'],
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },legend: {
+                    data:['已处理','未处理','处理中']
+                },
+                grid: {
+                	top:'4%',
+                    left: '3%',
+                    right: '6%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['已处理','未处理','处理中'],
+                    axisTick: {
+                    alignWithLabel: true
+                }
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name:'数量',
+                        type:'bar',
+                        barWidth: '60%',
+                        data:[<{$yes_yue}>, <{$ing_yue}>, <{$no_yue}>]
+                    }
+                ]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+    </body>
+</html>

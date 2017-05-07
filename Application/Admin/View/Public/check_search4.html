@@ -1,0 +1,36 @@
+<div class="navbar navbar-inner block-header pos">
+    <label class='span2'>
+        <select name="area_town" id="area_town">
+            <option value="" >请选择乡/镇</option>
+            <notempty name="town_area_list">
+                <foreach name="town_area_list" item="vo">
+                    <option value="{$vo.id}" <eq name="vo.id" value="$town_area_info.id">selected</eq>>{$vo.area_name}</option>
+                </foreach>
+            </notempty>
+        </select>
+    </label>
+    <label class='span2'>
+        <select name="village_area" id="village_area">
+            <option value="">请选择地块</option>
+            <notempty name="village_area_list">
+                <foreach name="village_area_list" item="vo">
+                    <option value="{$vo.id}"  <eq name="vo.id" value="$village_area_info.id">selected</eq>>{$vo.area_name}</option>
+                </foreach>
+            </notempty>
+        </select>
+    </label>
+    <label class='span2'>
+        <select name="admin" id="admin">
+            <option value="">请选择管理员...</option>
+            <notempty name="admin_list">
+                <foreach name="admin_list" item="vo">
+                    <option value="{$vo.id}" <eq name="vo.id" value="$admin_id">selected</eq>>{$vo.name}</option>
+                </foreach>
+            </notempty>
+        </select>
+    </label>
+    <label class='span4'>
+        <input type='text'placeholder='设备编号/设备名称' style='width:120px;height: 30px; margin-rigth:0' name="keywords"  value='<notempty name="keywords">{$keywords}</notempty>'>
+        <a href="javascript:void(0);" class='btn span1'  id="search" style='margin-left:0!important'>查询</a>
+    </label>
+</div>

@@ -1,0 +1,386 @@
+[ 2017-03-07T10:08:12+08:00 ] 127.0.0.1 /index.php/manage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: admin E:\Project\sannong\Application\Manage\Controller\BaseController.class.php 第 17 行.
+
+[ 2017-03-07T10:08:12+08:00 ] 127.0.0.1 /Manage/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sn_department` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `sn_department`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.099006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.099006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.013001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.012000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012000s ]
+
+[ 2017-03-07T10:08:13+08:00 ] 127.0.0.1 /Manage/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2017-03-07T10:08:13+08:00 ] 127.0.0.1 /Manage/assets/images/favicon.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-07T10:08:38+08:00 ] 127.0.0.1 /Manage/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sn_admin` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `sn_admin` WHERE `logname` = 'Manage' LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\PublicController.class.php 第 25 行.
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\PublicController.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `type` = 1 ORDER BY is_top asc  [ RunTime:0.0020s ]
+
+[ 2017-03-07T10:08:38+08:00 ] 127.0.0.1 /Manage/Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::add() should be compatible with that of Think\Model::add() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::delete() should be compatible with that of Think\Model::delete() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::getField() should be compatible with that of Think\Model::getField() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::page() should be compatible with that of Think\Model::page() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `level` = 1 AND `delete` = 0  [ RunTime:0.0010s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\IndexController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `sn_admin` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined index: keyword E:\Project\sannong\Application\Manage\Controller\IndexController.class.php 第 16 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `sn_admin` WHERE `dept_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `sn_admin` WHERE `dept_id` = 0 LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 105 行.
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 105 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 156 行.
+NOTIC: [8] Use of undefined constant aid - assumed 'aid' E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 261 行.
+NOTIC: [8] Use of undefined constant aid - assumed 'aid' E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 261 行.
+NOTIC: [8] Use of undefined constant aid - assumed 'aid' E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 261 行.
+NOTIC: [8] Use of undefined constant aid - assumed 'aid' E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 261 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-07T10:08:42+08:00 ] 127.0.0.1 /Manage/Ygl/ygl_adver
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::add() should be compatible with that of Think\Model::add() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::delete() should be compatible with that of Think\Model::delete() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::getField() should be compatible with that of Think\Model::getField() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::page() should be compatible with that of Think\Model::page() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `level` = 1 AND `delete` = 0  [ RunTime:0.0000s ]
+SQL: SELECT `action_id`,`action_code`,`action_name`,`action_url` FROM `sn_admin_action` WHERE `action_url` = '/Manage/Ygl/ygl_adver'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `sn_banner` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_banner` WHERE `status` = 1 AND `type` = 1 ORDER BY id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 105 行.
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 105 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 156 行.
+NOTIC: [8] Undefined variable: st E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 213 行.
+NOTIC: [8] Undefined variable: st E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 214 行.
+NOTIC: [8] Undefined variable: st E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 215 行.
+NOTIC: [8] Undefined variable: st E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 216 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 248 行.
+NOTIC: [8] Undefined variable: page E:\Project\sannong\Application\Runtime\Cache\Manage\2fd6cfead5cc4052e89671872c772afc.php 第 256 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-07T10:08:43+08:00 ] 127.0.0.1 /Manage/Ygl/ygl_adver_edit/id/22.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::add() should be compatible with that of Think\Model::add() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::delete() should be compatible with that of Think\Model::delete() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::getField() should be compatible with that of Think\Model::getField() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::page() should be compatible with that of Think\Model::page() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `level` = 1 AND `delete` = 0  [ RunTime:0.0010s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\YglController.class.php 第 2317 行.
+SQL: SHOW COLUMNS FROM `sn_banner` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_banner` WHERE `id` = 22 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 111 行.
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 111 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 162 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 162 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 162 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 162 行.
+NOTIC: [8] Undefined variable: menu E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 213 行.
+NOTIC: [8] Undefined index: title E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 223 行.
+NOTIC: [8] Undefined index: aid E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 252 行.
+NOTIC: [8] Undefined index: content E:\Project\sannong\Application\Runtime\Cache\Manage\86aeee153d11b4a9140edabbd468620e.php 第 277 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.082005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.082005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-03-07T10:08:44+08:00 ] 127.0.0.1 /Manage/Ygl/ygl_adver_edit/assets/images/favicon.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-07T10:09:08+08:00 ] 127.0.0.1 /Manage/Yjj/yjj_adver
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::add() should be compatible with that of Think\Model::add() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::delete() should be compatible with that of Think\Model::delete() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::getField() should be compatible with that of Think\Model::getField() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::page() should be compatible with that of Think\Model::page() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `level` = 1 AND `delete` = 0  [ RunTime:0.0010s ]
+SQL: SELECT `action_id`,`action_code`,`action_name`,`action_url` FROM `sn_admin_action` WHERE `action_url` = '/Manage/Yjj/yjj_adver'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `sn_banner` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_banner` WHERE `status` = 1 AND `type` = 2 ORDER BY id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 105 行.
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 105 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 156 行.
+NOTIC: [8] Undefined variable: st E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 213 行.
+NOTIC: [8] Undefined variable: st E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 214 行.
+NOTIC: [8] Undefined variable: st E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 215 行.
+NOTIC: [8] Undefined variable: st E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 216 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 248 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 248 行.
+NOTIC: [8] Undefined variable: page E:\Project\sannong\Application\Runtime\Cache\Manage\ccffbcaa10f2a2a748974c66a33f1240.php 第 256 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-07T10:09:09+08:00 ] 127.0.0.1 /Manage/Yjj/yjj_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::add() should be compatible with that of Think\Model::add() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::delete() should be compatible with that of Think\Model::delete() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::getField() should be compatible with that of Think\Model::getField() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::page() should be compatible with that of Think\Model::page() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `level` = 1 AND `delete` = 0  [ RunTime:0.0010s ]
+SQL: SELECT `action_id`,`action_code`,`action_name`,`action_url` FROM `sn_admin_action` WHERE `action_url` = '/Manage/Yjj/yjj_notice'  [ RunTime:0.0000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\YjjController.class.php 第 1582 行.
+SQL: SHOW COLUMNS FROM `sn_notice` [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: keyword E:\Project\sannong\Application\Manage\Controller\YjjController.class.php 第 1587 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `sn_notice` WHERE `type` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_notice` WHERE `type` = 2 ORDER BY addtime desc LIMIT 0,10   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `sn_department` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 5  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 3  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 7  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 3  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\fc402e5b95a1d5f14fd2b193078b2989.php 第 105 行.
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\fc402e5b95a1d5f14fd2b193078b2989.php 第 105 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\fc402e5b95a1d5f14fd2b193078b2989.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\fc402e5b95a1d5f14fd2b193078b2989.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\fc402e5b95a1d5f14fd2b193078b2989.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\fc402e5b95a1d5f14fd2b193078b2989.php 第 156 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.055003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-07T10:09:10+08:00 ] 127.0.0.1 /Manage/Yjj/wzc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::add() should be compatible with that of Think\Model::add() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::delete() should be compatible with that of Think\Model::delete() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::getField() should be compatible with that of Think\Model::getField() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::page() should be compatible with that of Think\Model::page() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `level` = 1 AND `delete` = 0  [ RunTime:0.0010s ]
+SQL: SELECT `action_id`,`action_code`,`action_name`,`action_url` FROM `sn_admin_action` WHERE `action_url` = '/Manage/Yjj/wzc'  [ RunTime:0.0000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\YjjController.class.php 第 146 行.
+SQL: SHOW COLUMNS FROM `sn_department` [ RunTime:0.0020s ]
+SQL: SELECT `did`,`dname` FROM `sn_department`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `sn_policy` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: keyword E:\Project\sannong\Application\Manage\Controller\YjjController.class.php 第 171 行.
+NOTIC: [8] Undefined index: dept_id E:\Project\sannong\Application\Manage\Controller\YjjController.class.php 第 174 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `sn_policy` ORDER BY is_top desc,id desc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_policy` ORDER BY is_top desc,id desc LIMIT 0,10   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: dept_id E:\Project\sannong\Application\Manage\Controller\YjjController.class.php 第 192 行.
+SQL: SELECT * FROM `sn_department` WHERE `did` = 6  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 4  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 5  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 7  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 8  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 2  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 3  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 9  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_department` WHERE `did` = 6  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 105 行.
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 105 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 156 行.
+NOTIC: [8] Undefined variable: dept2 E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 213 行.
+NOTIC: [8] Undefined variable: dept2 E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 214 行.
+NOTIC: [8] Undefined variable: s_is_top E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 219 行.
+NOTIC: [8] Undefined variable: s_is_top E:\Project\sannong\Application\Runtime\Cache\Manage\30e8edfd6e1b622a55cd4c7631858bc8.php 第 220 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-03-07T10:09:12+08:00 ] 127.0.0.1 /Manage/Yjj/wzcEdit/?id=47
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::add() should be compatible with that of Think\Model::add() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::delete() should be compatible with that of Think\Model::delete() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::getField() should be compatible with that of Think\Model::getField() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::page() should be compatible with that of Think\Model::page() E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `level` = 1 AND `delete` = 0  [ RunTime:0.0000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\YjjController.class.php 第 357 行.
+SQL: SHOW COLUMNS FROM `sn_policy` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_policy` WHERE `id` = 47  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `sn_department` [ RunTime:0.0020s ]
+SQL: SELECT `did`,`dname` FROM `sn_department`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\420272e9f7b5a48fbc65f1a93d663aa7.php 第 120 行.
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\420272e9f7b5a48fbc65f1a93d663aa7.php 第 120 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\420272e9f7b5a48fbc65f1a93d663aa7.php 第 171 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\420272e9f7b5a48fbc65f1a93d663aa7.php 第 171 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\420272e9f7b5a48fbc65f1a93d663aa7.php 第 171 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\420272e9f7b5a48fbc65f1a93d663aa7.php 第 171 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-03-07T10:09:12+08:00 ] 127.0.0.1 /Manage/Yjj/assets/images/favicon.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+

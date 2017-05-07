@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>智能物联控制管理平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="_css_/znwl/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_css_/znwl/normalize.css">
+    <link rel="stylesheet" href="_css_/znwl/main.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/styles.css">
+    <script src="_js_/vendor/jquery-1.9.0.min.js"></script>
+    <script src="_js_/vendor/modernizr-2.6.2.min.js"></script>
+    <style>
+        .lik > div:nth-child(2){
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+        }
+        .lik > div:nth-child(2) a{
+            padding: 0 12px;
+            height:33px;
+            line-height:33px;
+            display: inline-block;
+            border:1px solid #ddd;
+            margin-left: 5px;
+            border-radius: 8px;
+        }
+        .lik > div:nth-child(2) span{
+            padding: 0 12px;
+            height:33px;
+            line-height:33px;
+            display: inline-block;
+            border:1px solid #ddd;
+            margin-left: 5px;
+            border-radius: 8px;
+        }
+        .lik > div:nth-child(2) span.current{
+            background-color: #66b534;
+            color: #fff;
+        }
+
+        body{
+           font-size:12px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row-fluid'>
+        <!--引入左侧导航开始1-->
+          <include file="Public:top_nav" />
+
+        <!--引入左侧导航结束-->
+        <div class='wl-right'>
+            <!--引入顶部导航开始-->
+            <include file="Public:left_menu" reflush="true"/>
+            <!--引入顶部导航结束-->
+
+            <div class='right_contain'>
+                  <div class='mabo'>
+                      <i></i><a>设备实时数据</a>/<span>列表</span>
+                  </div>
+                  <div class='tab-main cle'>
+                  <div class="span12">
+                    <!-- block -->
+                    <form method="post" id="search_form" action='/admin/index/index' enctype="multipart/form-data">
+                    <div class="block">
+                        <include file="Public:check_search2" />
+
+                        <div class="block-content collapse in lik">
+                            <div class='kf'>
+                                <ul class='cle'>
+                                    <volist name="deviceList.list" id="vo">
+                                        <li class='span3'>
+                                            <switch name="vo.online">
+                                                <case value="1">
+
+                                                    <eq name="vo.class" value="BASE">
+                                                        <a href="{:u('/admin/statis/secondState',array('id'=>$vo['id']))}"  style="background-image:url('/app/admin/view/common/img/base_on.png');"}>
+                                                            <span>{$vo.area_name}{$vo.device_name}</span>
+                                                            <span>{$vo.device_code}</span>
+                                                            <span>在线</span>
+                                                        </a>
+                                                        <else/>
+                                                        <a href="{:u('/admin/statis/secondState',array('id'=>$vo['id']))}"  style="background-image:url('/app/admin/view/common/img/stand_on.png');"}>
+                                                            <span>{$vo.area_name}{$vo.device_name}</span>
+                                                            <span>{$vo.device_code}</span>
+                                                        </a>
+                                                    </eq>
+                                                </case>
+                                                <case value="0">
+                                                    <eq name="vo.class" value="BASE">
+                                                        <a href="{:u('/admin/statis/secondState',array('id'=>$vo['id']))}"  style="background-image:url('/app/admin/view/common/img/base_off.png');"}>
+                                                            <span>{$vo.area_name}{$vo.device_name}</span>
+                                                            <span>{$vo.device_code}</span>
+                                                        </a>
+                                                        <else/>
+                                                        <a href="{:u('/admin/statis/secondState',array('id'=>$vo['id']))}"  style="background-image:url('/app/admin/view/common/img/stand_off.png');"}>
+                                                            <span>{$vo.area_name}{$vo.device_name}</span>
+                                                            <span>{$vo.device_code}</span>
+                                                        </a>
+                                                    </eq>
+                                                </case>
+                                            </switch>
+                                        </li>
+                                    </volist>
+                                </ul>
+
+                            </div>
+                            {$deviceList.page}
+                        </div>
+                    </div>
+                    </form>
+                    <!-- /block -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src='_js_/bootstrap.min.js'></script>
+<script src="_js_/plugins.js"></script>
+<script src="_js_/main.js"></script>
+<script type="text/javascript">
+    function sc() {
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.tab-main').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.tab-main').height(460)
+
+        }
+    }
+    sc();
+    fh();
+    $('.btn-navbar').click(function(event) {
+        /* Act on the event */
+        if ($(this).attr('data-ul') ==1) {
+            $(this).attr('data-ul','0')
+            $('.yc-nav').css('display','block');
+        }else{
+            $(this).attr('data-ul','1')
+            $('.yc-nav').css('display','none');
+        };
+
+    });
+    $('.btn-inverse').click(function(event) {
+        /* Act on the event */
+        window.history.go(-1);
+    });
+    window.onresize = function(){
+        fh();
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.tab-main').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.tab-main').height(460)
+
+        }
+    }
+    function fh () {
+        $('.tab-main .navbar label span').each(function(index, el) {
+            var lw = $('.tab-main .navbar label').width();
+            $(this).siblings('input').width(lw-$(this).width()-45);
+        });
+    }
+    $('.wl-left >ul >li').click(function(event) {
+        /* Act on the event */
+        $(this).addClass('on').find('div').css('display','block').parents('li').siblings().removeClass('on').find('div').css('display','none');
+    })
+
+
+    /*这是自己的代码*/
+
+    $("#area_town").change(function (o) {
+        stopPropagation(o);
+
+        var id = $(this).val();
+
+        $('#village_area').empty()
+
+        $.ajax({
+            url: "/admin/area/ajaxVillageArea",
+            data:{id:id},
+            type: "POST",
+            success: function(data){
+                var html = '<option value="">请选择地块</option>';
+
+                if(data.ret == 200)
+                {
+                    for(var i=0;i<data['data'].length;i++){
+
+                        html+= " <option value='"+data['data'][i]['id']+"'>"+data['data'][i]['area_name']+"</option>";
+
+                    }
+
+                }
+
+                $('#village_area').append(html);
+            }});
+
+
+    })
+
+
+
+
+
+    function stopPropagation(event) {
+
+        var e = window.event || event;
+
+        if (e.stopPropagation) { //如果提供了事件对象，则这是一个非IE浏览器
+
+            e.stopPropagation();
+
+        } else {
+            //兼容IE的方式来取消事件冒泡
+
+            window.event.cancelBubble = true;
+
+        }
+    }
+
+
+
+    $("#search").click(function(){
+
+
+        $("#search_form").submit();
+
+
+
+    })
+    $("#addDevice").click(function(){
+
+
+         window.location.href = "{:u('/admin/device/addIndex')}";
+
+    })
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

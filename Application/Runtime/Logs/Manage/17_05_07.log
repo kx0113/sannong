@@ -1,0 +1,154 @@
+[ 2017-05-07T21:42:17+08:00 ] 127.0.0.1 /index.php/manage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: admin E:\Project\sannong\Application\Manage\Controller\BaseController.class.php 第 17 行.
+
+[ 2017-05-07T21:42:17+08:00 ] 127.0.0.1 /Manage/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sn_department` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `sn_department`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.066003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.066003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.011001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.024001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.024001s ]
+
+[ 2017-05-07T21:42:18+08:00 ] 127.0.0.1 /Manage/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-07T21:42:18+08:00 ] 127.0.0.1 /Manage/assets/images/favicon.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-05-07T21:42:28+08:00 ] 127.0.0.1 /Manage/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: message E:\Project\sannong\Application\Runtime\Cache\Manage\b9fa1cf404683b53f8021819da361a01.php 第 23 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.042002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.042002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-05-07T21:42:32+08:00 ] 127.0.0.1 /Manage/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sn_department` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `sn_department`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-07T21:42:35+08:00 ] 127.0.0.1 /Manage/Public/verify?d=0.12717427435575535
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-05-07T21:42:40+08:00 ] 127.0.0.1 /Manage/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sn_admin` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `sn_admin` WHERE `logname` = 'manage' LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\PublicController.class.php 第 25 行.
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\PublicController.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `type` = 1 ORDER BY is_top asc  [ RunTime:0.0010s ]
+
+[ 2017-05-07T21:42:41+08:00 ] 127.0.0.1 /Manage/Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::add() should be compatible with Think\Model::add($data = '', $options = Array, $replace = false) E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::delete() should be compatible with Think\Model::delete($options = Array) E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::getField() should be compatible with Think\Model::getField($field, $sepa = NULL) E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Manage\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) E:\Project\sannong\Application\Manage\Model\BaseModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `sn_admin_action` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `sn_admin_action` WHERE `level` = 1 AND `delete` = 0  [ RunTime:0.0010s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\Project\sannong\Application\Manage\Controller\IndexController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `sn_admin` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: keyword E:\Project\sannong\Application\Manage\Controller\IndexController.class.php 第 16 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `sn_admin` WHERE `dept_id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `sn_admin` WHERE `dept_id` = 0 LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 105 行.
+NOTIC: [8] Undefined variable: header_value E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 105 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 156 行.
+NOTIC: [8] Undefined index: action_id E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 156 行.
+NOTIC: [8] Use of undefined constant aid - assumed 'aid' E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 261 行.
+NOTIC: [8] Use of undefined constant aid - assumed 'aid' E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 261 行.
+NOTIC: [8] Use of undefined constant aid - assumed 'aid' E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 261 行.
+NOTIC: [8] Use of undefined constant aid - assumed 'aid' E:\Project\sannong\Application\Runtime\Cache\Manage\f995b9b870b2d4649861acd2c8405708.php 第 261 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

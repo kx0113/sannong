@@ -1,0 +1,43 @@
+<div class="page-sidebar-wrapper" id="main-menu-wrapper">
+    <div>
+        <a href="" style="background-color:#179d24" class='fbxx'>发布信息</a>
+        <ul class='wraplist' style='border-top:1xp solid #3e4359'>
+            <volist name="menus" id="vo">
+                <if condition="$_GET['action_id'] eq 1">
+                    <if condition="$vo['action_id'] eq 1">
+                        <li <if condition="$liclass eq $vo['action_code']"> class="open" </if>>
+                        <a href="javascript:;">
+                            <i class="fa  fa-pie-chart"></i>
+                            <span class="title"><{$vo.action_name}></span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu" >
+                            <volist name="vo._child" id="child">
+                                <li>
+                                    <a <if condition="$aclass eq $child['action_code']"> class="active" </if> href="<{$child.action_url}>" ><{$child.action_name}></a>
+                                </li>
+                            </volist>
+                        </ul>
+                        </li>
+                    </if>
+
+                <else/>
+                    <li <if condition="$liclass eq $vo['action_code']"> class="open" </if>>
+                    <a href="javascript:;">
+                        <i class="fa  fa-pie-chart"></i>
+                        <span class="title"><{$vo.action_name}></span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu" >
+                        <volist name="vo._child" id="child">
+                            <li>
+                                <a <if condition="$aclass eq $child['action_code']"> class="active" </if> href="<{$child.action_url}>" ><{$child.action_name}></a>
+                            </li>
+                        </volist>
+                    </ul>
+                    </li>
+                </if>
+            </volist>
+        </ul>
+    </div>
+</div>

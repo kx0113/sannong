@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>智能物联控制管理平台</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="_css_/znwl/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="_css_/znwl/normalize.css">
+        <link rel="stylesheet" href="_css_/znwl/main.css">
+        <link rel="stylesheet" type="text/css" href="_css_/znwl/styles.css">
+        <script src="_js_/vendor/jquery-1.9.0.min.js"></script>
+        <script src="_js_/vendor/modernizr-2.6.2.min.js"></script>
+        <style type="text/css">
+                  .sjs-main{
+                    background-color: #f5f6f8;
+                    padding: 20px 20px 10px;
+
+                  }
+                  .sjs-li{
+                    padding-left: 100px;
+                    position: relative;
+                    margin-bottom: 20px;
+                  }
+                  .sjs-spa{
+                    position: absolute;
+                    font-size: 14px;
+                    color: #333;
+                    left: 20px;
+                    top: 0px;
+                    color: #666;
+                  }
+
+                  .sjs-li a{
+                    float: left;
+                    padding: 0 10px;
+                    font-size: 14px;
+                    color: #000;
+                    margin-bottom: 5px;
+                  }
+                  .sjs-li a:hover,.sjs-li a.on{
+                    color: #109b48;
+                  }
+                .kf{
+                  background-color: #fff;
+                }
+              .lik ul li span.off{
+                color: #666;
+              }
+              .lik ul li span:last-child{
+                color: #000;
+              }
+              .lik ul li span.on{
+                color: #109b48;
+              }
+              .lik ul.on li{
+              width: 100%;
+              padding-top: 0;
+              float: none;
+              margin:0;
+              border-bottom: 1px solid #ddd;
+              }
+
+              .lik ul.on li a{
+                padding-top: 0;
+                display: block;
+                line-height: 60px;
+                padding-left: 100px;
+                background: url(_img_/cs_13.png) no-repeat 25px center;
+                background-size: 40px auto;
+              }
+
+              .lik ul li a{
+                display: block;
+                padding-top: 70px;
+                background: url(_img_/cs_13.png) no-repeat center 10px;
+              }
+
+              .lik ul.on li a span{
+                float: left;
+                display: block;
+                text-align: center;
+
+                margin-right: 20px;
+              }
+              .pos1 a{
+                display: block;
+                float:left;
+                line-height: 60px;
+                padding: 0 20px;
+                color: #333;
+              }
+              .pos1 a.on{
+                background-color: #109b48;
+                color: #fff;
+              }
+              .mabo .span5{
+                line-height: 46px;
+                margin: 0;
+              }
+              .mabo .span5 input{
+
+                margin: 0;
+              }
+              .mabo .span5 .btn{
+                background: #ff6600;
+                color: #fff;
+              }
+              .dl-qh{
+                float: right!important;
+                width: 20px;
+                height: 20px;
+                padding: 20px!important;
+              }
+              .dl-qh.da{
+                background: url(_img_/vd_06.png) no-repeat center;
+              }
+              .dl-qh.lie{
+                background: url(_img_/dn_08.png) no-repeat center;
+              }
+              .dl-qh.da.on{
+                background: url(_img_/dn_06.png) no-repeat center;
+              }
+              .dl-qh.lie.on{
+                background: url(_img_/vd_08.png) no-repeat center;
+              }
+                .num{
+
+                    text-align: right;
+                    padding:10px 20px 5px 0px;
+                    font-size: 16px;
+
+
+                }
+        </style>
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <div class='row-fluid'>
+
+              <!--引入左侧导航开始1-->
+                <include file="Public:top_nav" />
+
+              <!--引入左侧导航结束-->
+                <div class='wl-right'>
+                  <!--引入顶部导航开始-->
+                   <include file="Public:left_menu" reflush="true"/>
+                  <!--引入顶部导航结束-->
+                    <div class='right_contain'>
+                       <div class='mabo'>
+                        <i></i><a>设备实时数据</a>/<span>列表</span>
+                        <label class='span5' style='float:right'>
+                                  <form method="post" id="search_form" name="search_form" action='/admin/Index/secondIndex' enctype="multipart/form-data">
+                                        <input type='text' name="keywords"  id="keywords" value="{$keywords}" placeholder='设备编号/设备名称'>
+                                        <input type="hidden" id="area_town" name="area_town" value='{$area_town}'>
+                                        <input type="hidden" id="village_area" name="village_area" value="{$area_village}">
+                                        <input  type="hidden" id="type" name="type"  value="{$type}">
+                                        <button href="javascript:;" class='btn'>查询</button>
+                                   </form>
+                        </label>
+                    </div>
+
+                       <div class='tab-main cle'>
+                      <div class='sjs-main'>
+                        <div class='sjs-li'>
+                          <span class='sjs-spa'>区域：</span>
+                          <div class='cle'>
+                              <a href="javascript:void(0);" class='<eq name='vo.id' value="$town_area_info.id">on</eq>'  data-value='' onclick="getArea('')" >全部</a>
+                            <foreach name="town_area_list" item='vo'>
+                                  <a href="javascript:void(0);" class='<eq name='vo.id' value="$town_area_info.id">on</eq>'  data-value='{$vo.id}' onclick="getArea({$vo.id})" >{$vo.area_name}</a>
+                            </foreach>
+                          </div>
+                            <script type="text/javascript">
+
+                            function getArea(o)
+                            {
+
+                                $('#area_town').val(o);
+                                $('#keywords').val('');
+
+                                $('#search_form').submit();
+
+
+                            }
+
+                            function getVillage(o)
+                            {
+
+                                $('#village_area').val(o);
+                                $('#keywords').val('');
+                                $('#search_form').submit();
+
+                            }
+
+                            function getType(o)
+                            {
+
+                                $('#type').val(o);
+                                $('#keywords').val('');
+
+                                $('#search_form').submit();
+
+                            }
+
+
+
+
+                            </script>
+
+                        </div>
+                        <div class='sjs-li'>
+                          <span class='sjs-spa'>地块：</span>
+                          <div class='cle '>
+                              <a href="javascript:void;" class='<eq name='vo.id' value="$village_area_info.id">on</eq>'  data-value='' onclick="getVillage('')" >全部</a>
+                            <foreach name="village_area_list" item='vo'>
+                                  <a href="javascript:;" class='<eq name='vo.id' value="$village_area_info.id">on</eq>'  data-value='{$vo.id}' onclick="getVillage({$vo.id})" >{$vo.area_name}</a>
+                            </foreach>
+
+                          </div>
+                        </div>
+
+                      </div>
+                      <div>
+                      <div class=" span12">
+                            <!-- block -->
+                            <div class="block">
+                                <div class="navbar navbar-inner block-header pos pos1">
+                                   <a href="javascript:;"   onclick="getType('GREENHOUSE')"  class='sx <eq name="type" value="GREENHOUSE">on</eq>'>棚室</a>
+                                   <a href="javascript:;"    onclick="getType('OUTDOOR')" class='sx  <eq name="type" value="OUTDOOR">on</eq>'>室外</a>
+
+                                    <a href="javascript:;" class='dl-qh lie'></a>
+                                    <a href="javascript:;"  class='dl-qh da on'></a>
+                                </div>
+                                <div class="num">总共搜索到{$deviceList.count}台设备</div>
+                                <div class="block-content collapse in lik">
+                                   <div class='kf'>
+                                       <ul class='cle on'>
+                                         <foreach name='deviceList.list' item="vo">
+                                           <li class='span3 jj'>
+                                               <a href="{:u('/admin/statis/secondState',array('id'=>$vo['id']))}" class='cle'>
+                                                   <span>{$vo.new_name}</span>
+                                                   <span>{$vo.device_code}</span>
+                                                   <eq name='vo.online' value='1'><span class='on'>在线</span><else/><span>离线</span></eq>
+                                                   <span> <notempty name='vo.lat'>经纬度: {$vo.lat}N,{$vo.lng}E<else/> 经纬度: 暂无</notempty> </span>
+                                                   <span> <notempty name='vo.lat'><eq name='vo.lat' value="0">海拔: 暂无<else/> 海拔:{$vo.altitude}m</eq><else/> 海拔: 暂无</notempty> </span>
+
+                                               </a>
+                                           </li>
+                                         </foreach>
+                                       </ul>
+                                   </div>
+                                </div>
+                            </div>
+                            <!-- /block -->
+                        </div>
+                      </div>
+                   </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="_js_/vendor/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src='_js_/bootstrap.min.js'></script>
+        <script src="_js_/plugins.js"></script>
+        <script src="_js_/main.js"></script>
+        <script type="text/javascript">
+        function sc() {
+            if ($(window).height() >= 660) {
+                    var win = $(window).height()
+                    $('.container-fluid >.row-fluid').height(win);
+                    $('.tab-main').height(win-200)
+
+                }else{
+                    $('.container-fluid >.row-fluid').height(660);
+                    $('.tab-main').height(460)
+
+                }
+        }
+            sc();
+       $('.fr> a').hover(function(event) {
+         /* Act on the event */
+         $(this).siblings('div').addClass('on');
+       },function(){});
+       $('.fr').hover(function(){
+
+       },function(){
+        $(this).find('div').removeClass('on');
+       })
+            $('.btn-navbar').click(function(event) {
+
+                /* Act on the event */
+                if ($(this).attr('data-ul') ==1) {
+                    $(this).attr('data-ul','0')
+                  $('.yc-nav').css('display','block');
+                }else{
+                     $(this).attr('data-ul','1')
+                  $('.yc-nav').css('display','none');
+                };
+
+            });
+
+           window.onresize = function(){
+
+                if ($(window).height() >= 660) {
+                    var win = $(window).height()
+                    $('.container-fluid >.row-fluid').height(win);
+                    $('.tab-main').height(win-200)
+
+                }else{
+                    $('.container-fluid >.row-fluid').height(660);
+                    $('.tab-main').height(460)
+
+                }
+            }
+            $('.dl-qh').click(function(){
+              $(this).addClass('on').siblings('.dl-qh').removeClass('on');
+              if($(this).hasClass('da')){
+                $('.kf ul').removeClass('on')
+              }else{
+                  $('.kf ul').addClass('on')
+              }
+            });
+        </script>
+    </body>
+</html>

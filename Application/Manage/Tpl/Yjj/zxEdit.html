@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html class=" ">
+    <head>
+        <!-- 
+         * @Package: Complete Admin - Responsive Theme
+         * @Subpackage: Bootstrap
+         * @Version: 2.2
+         * This file is part of Complete Admin Theme.
+        -->
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta charset="utf-8" />
+        <title>综合管理</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon" />    <!-- Favicon -->
+        <link rel="apple-touch-icon-precomposed" href="../assets/images/apple-touch-icon-57-precomposed.png">	<!-- For iPhone -->
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/images/apple-touch-icon-114-precomposed.png">    <!-- For iPhone 4 Retina display -->
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/images/apple-touch-icon-72-precomposed.png">    <!-- For iPad -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/images/apple-touch-icon-144-precomposed.png">    <!-- For iPad Retina display -->
+
+        <!-- CORE CSS FRAMEWORK - START -->
+        <link href="__ROOT__/Style/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="__ROOT__/Style/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__ROOT__/Style/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__ROOT__/Style/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="__ROOT__/Style/css/animate.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__ROOT__/Style/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css"/>
+        <link href="__ROOT__/Style/css/css.css" rel="stylesheet" type="text/css"/>
+        <link href="__ROOT__/Style/css/css1.css" rel="stylesheet" type="text/css"/>
+        <link href='__ROOT__/Style/css/layer.css'>
+
+        <!-- CORE CSS FRAMEWORK - END -->
+
+        <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START --> 
+        
+        
+        <link href="__ROOT__/Style/plugins/jvectormap/jquery-jvectormap-2.0.1.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="__ROOT__/Style/plugins/datatables/css/jquery.dataTables.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="__ROOT__/Style/plugins/datatables/extensions/TableTools/css/dataTables.tableTools.min.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="__ROOT__/Style/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="__ROOT__/Style/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="screen"/>
+
+        <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+
+
+        <!-- CORE CSS TEMPLATE - START -->
+        <link href="__ROOT__/Style/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="__ROOT__/Style/css/responsive.css" rel="stylesheet" type="text/css"/>
+        <!-- CORE CSS TEMPLATE - END -->
+        <style type="text/css">
+			.po{
+				display:none;
+			}
+			.no_shipin{
+				
+			}
+		</style>
+		<script>
+			function change_sp(){
+				var a = getElementByClass('shipin');
+				var b = getElementByClass('no_shipin');
+				if(event.value==2){
+					a.style.display="block";
+				}
+				a.addclass('display:display');
+			}
+		
+		</script>
+		
+        <script>
+           
+            function yanzheng1(){
+            	if($('#title').val()==''){
+            		alert('请填写标题');
+            		return false; 
+            	}
+            	if($('#picture').val()==''){
+            		alert('请上传图片');
+            		return false; 
+            	}
+            	
+            	
+            }
+            
+            function yanzheng2(){
+            	if($('#title').val()==''){
+            		alert('请填写标题');
+            		return false; 
+            	}
+            	if($('#picture').val()==''){
+            		alert('请上传视频预览图片');
+            		return false; 
+            	}
+            	
+            	if($('#link').val()==''){
+            		alert('请填写正确的视频链接');
+            		return false; 
+            	}
+            }
+        </script>
+        
+         <!-- ueditor -->
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Style/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Style/ueditor/ueditor.all.min.js"> </script>
+        <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+        <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+        <script type="text/javascript" charset="utf-8" src="__ROOT__/Style/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <!-- ueditor -->
+        
+    </head>
+    <!-- END HEAD -->
+
+    <!-- BEGIN BODY -->
+    <body class=" ">
+    <!-- START TOPBAR -->
+    <include file="Public/header" />
+<!-- END TOPBAR -->
+<!-- START CONTAINER -->
+<div class="page-container row-fluid container-fluid">
+
+    <!-- SIDEBAR - START -->
+
+<div class="page-sidebar fixedscroll">
+
+    <!-- MAIN MENU - START -->
+    <include file="Public/getMenus" />
+    <!-- MAIN MENU - END -->
+
+
+
+</div>
+<!--  SIDEBAR - END -->
+    <!-- START CONTENT -->
+<section id="main-content" class=" ">
+
+    <section class="wrapper main-wrapper row" style=''>
+        <!--<div class='mbx'>
+            <i class='fa fa-home'></i>
+            <a href="">首页</a>/
+            <a href="">易管理</a>/
+            <span>用户管理</span>
+        </div>-->
+        <div class="col-lg-12">
+            <section class="box ">
+
+                    <div class='xzen xzen1'>
+
+                        <h3>编辑资讯</h3>
+                        <ul style='padding-top:40px; padding-bottom:50px;'>
+                        		<li>
+                                    <span>类别：</span>
+                                    <select name="cate_id" id="selecting" onchange="return change_sp(this)">
+	                                    <option value="1" <if condition="$info.cate_id eq 1">selected</if>>推荐</option>
+	                                    <option value="2" <if condition="$info.cate_id eq 2">selected</if>>视频</option>
+	                                    <option value="3" <if condition="$info.cate_id eq 3">selected</if>>热点</option>
+	                                    <option value="4" <if condition="$info.cate_id eq 4">selected</if>>农事</option>
+                                    </select>
+                                </li>
+                            <form method="post" enctype="multipart/form-data" class='po1'>
+                          <div>
+                          		<input type="hidden" name="cate_id" value=""/>
+                                <li>
+                                    <span>是否题图：</span>
+                                    <select name="is_top">
+	                                    <option value="1" <if condition="$info.is_top eq 1">selected</if>>是</option>
+	                                    <option value="2" <if condition="$info.is_top eq 2">selected</if>>否</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <span>标题：</span>
+                                    <input type='' name="title" id="title" value="<{$info.title}>">
+                                    <input type='hidden' name="id" value="<{$info.id}>">
+                                </li>
+                                <li>
+                                    <span>图片：</span>
+                                    <input type='file' name="picture" id="picture">
+                                    <div style='width:330px;padding-left:89px;padding-top:10px'>
+                                    	<img style='width:100%' src="/<{$info.picture}>"/>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>简介：</span>
+                                    <input type='' name="introduce" id="introduce" value="<{$info.introduce}>">
+                                </li>
+                                <li>
+                                    <span>来自：</span>
+                                    <input type='' name="from" id="from" value="<{$info.from}>">
+                                </li>
+                                <li>
+                                    <span>内容：</span>
+                                      <script id="container" name="content" type="text/plain" style="width:700px;height:300px;"><{$info.content}></script>
+                                </li>
+                                <li class='xh-an'>
+                                    <button class='que' type="submit" style="margin-right: 100px;" >保存</button>
+                                    <button type="button" onclick="location.href=history.back();" class="czhi">返回</button>
+                                </li>
+                          </div>
+                          </form>
+                         <form method="post" enctype="multipart/form-data" class='po'>
+                         <input type="hidden" name="cate_id" value=""/>
+                          <div>
+                          		<li>
+                                    <span>标题：</span>
+                                    <input type='' name="title" id="title_1" value="<{$info.title}>">
+                                    <input type='hidden' name="id" value="<{$info.id}>">
+                                </li>
+                               <li>
+                                    <span>视频链接：</span>
+                                    <input type='' name="link" id="link" value="<{$info.link}>">
+                               </li>
+                               <li>
+                                    <span>视频预览图：</span>
+                                    <input type='file' name="picture" id="picture_1">
+                                    <!-- <img src="/"/> -->
+                                    <div style='width:330px;padding-left:89px;padding-top:10px'>
+                                    	<img style='width:100%' src="/<{$info.picture}>"/>
+                                    </div>
+                               </li>
+                               <li>
+                                    <span>来自：</span>
+                                    <input type='' name="from" id="from_1" value="<{$info.from}>">
+                                </li>
+                                <li>
+                                    <span>简介：</span>
+                                    <input type='' name="introduce" id="introduce_1" value="<{$info.introduce}>">
+                                </li>
+                                <li class='xh-an'>
+                                    <button class='que' type="submit" style="margin-right: 100px;" >保存</button>
+                                    <button type="button" onclick="location.href=history.back();" class="czhi">返回</button>
+                                </li>
+                           </div>
+                                
+                                
+                            </form>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+    <!-- MAIN CONTENT AREA STARTS -->
+    
+<!-- MAIN CONTENT AREA ENDS -->
+    </section>
+</section>
+
+
+
+<div class="chatapi-windows ">
+
+<!-- ueditor -->
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+</script>
+<!-- ueditor -->
+
+
+</div>    </div>
+<div class='zhao'></div>
+    <!-- END CONTAINER -->
+<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+
+<!-- CORE JS FRAMEWORK - START --> 
+<script src="__ROOT__/Style/js/jquery-1.11.2.min.js" type="text/javascript"></script> 
+<script src="__ROOT__/Style/js/jquery.easing.min.js" type="text/javascript"></script> 
+<script src="__ROOT__/Style/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+<script src="__ROOT__/Style/plugins/pace/pace.min.js" type="text/javascript"></script>  
+<script src="__ROOT__/Style/plugins/perfect-scrollbar/perfect-scrollbar.min.js" type="text/javascript"></script> 
+<script src="__ROOT__/Style/plugins/viewport/viewportchecker.js" type="text/javascript"></script>  
+<script>window.jQuery||document.write('<script src="__ROOT__/Style/js/jquery-1.11.2.min.js"><\/script>');</script>
+<!-- CORE JS FRAMEWORK - END --> 
+
+		<script>
+		if(<{$info.cate_id}> == 2){
+			change_sp1();
+		}
+		function change_sp1(){
+				$('.po').css('display','block');
+				$('.po1').css('display','none');
+				$('.po input[type="hidden"]').val(<{$info.cate_id}>)
+			
+		}
+			function change_sp(div){
+
+
+
+				var o = $('#selecting option:selected').attr('value');
+			    $('input[name=cate_id]').val(o);
+				if(o ==  2){
+					$('.po').css('display','block');
+					$('.po1').css('display','none');
+					$('.po input[type="hidden"]').val(o)
+				}else{
+					$('.po1').css('display','block')
+					$('.po').css('display','none')
+					$('.po1 input[type="hidden"]').val(o)
+				}
+			}
+        $('input[name=cate_id]').val($('#selecting').val());
+		</script>
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START --> 
+
+<!-- <script src="__ROOT__/Style/plugins/jvectormap/jquery-jvectormap-2.0.1.min.js" type="text/javascript"></script>
+<script src="__ROOT__/Style/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script> -->
+<!-- <script src="__ROOT__/Style/js/dashboard.js" type="text/javascript"></script> -->
+<!-- <script src="__ROOT__/Style/plugins/echarts/echarts-custom-for-dashboard.js" type="text/javascript"></script> -->
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+
+
+<script src="__ROOT__/Style/plugins/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="__ROOT__/Style/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+<script src="__ROOT__/Style/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js" type="text/javascript"></script>
+<script src="__ROOT__/Style/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.js" type="text/javascript"></script>
+<!-- CORE TEMPLATE JS - START --> 
+<script src="__ROOT__/Style/js/scripts.js" type="text/javascript"></script>
+<script type="text/javascript" src='__ROOT__/Style/js/layer.js'></script>  
+<!-- END CORE TEMPLATE JS - END --> 
+
+
+<!-- General section box modal start -->
+<div class="modal" id="section-settings" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog animated bounceInDown">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Section Settings</h4>
+            </div>
+            <div class="modal-body">
+
+                Body goes here...
+
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                <button class="btn btn-success" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$('.da2').click(function(){
+    event.stopPropagation();  
+    $('.xzen,.zhao').fadeIn(200);
+    return false;
+});
+     /*$(document).click(function(event){
+          var _con = $('.xzen');   // 设置目标区域
+          if(!_con.is(event.target) && _con.has(event.target).length === 0){ // Mark 1
+
+            $('.xzen').fadeOut(200);
+            $('.zhao').fadeOut(200)          //淡出消失
+          }
+    });*/
+
+</script>
+<script type="text/javascript">
+    $('.table1 span.dx-zi').click(function(event) {
+        $(this).toggleClass('on');
+    });
+
+</script>
+<script type="text/javascript">
+    /*$('.fa-trash').on('click',function(){
+        var t = $(this).attr('data-nub');
+        layer.open({
+        type : 1,
+        shadeClose : false,
+        // area : [ '500px', '300px' ],
+        title : "确认",
+        btn : [ '确定', '取消' ],
+        btn1 : function(index, layero) {
+              $('tbody tr').each(function(){
+                if($(this).attr('data-in') == t){
+                    $(this).remove();
+                    return;
+                }
+              });  
+            
+            layer.close(index);
+        
+        },
+        btn2 : function(index) {
+            layer.close(index);
+        }
+    });
+    })*/
+    /*$('.da3').on('click',function(){
+        layer.open({
+        type : 1,
+        shadeClose : false,
+        // area : [ '500px', '300px' ],
+        title : "确认",
+        btn : [ '确定', '取消' ],
+        btn1 : function(index, layero) {
+             shanc();
+            
+            layer.close(index);
+        
+        },
+        btn2 : function(index) {
+            layer.close(index);
+        }
+    });
+    })*/
+    function shanc(){
+        if ($('.dx-zi.on').length>0) {
+            $('.dx-zi').each(function(index, el) {
+               if ($(this).hasClass('on')) {
+                $(this).parents('tr').remove();
+               };
+            });
+        }else{
+             layer.msg('请选择', {icon: 1});
+        }
+    }
+    $('.dx-zi1').on('click',function(){
+        if($(this).attr('data-on') == 1){
+            $(this).attr('data-on','0' );
+            $('.dx-zi').each(function(){
+                $(this).addClass('on');
+            })
+        }else{
+            $(this).attr('data-on','1' );
+            $('.dx-zi').each(function(){
+                $(this).removeClass('on');
+            })
+        }
+    })
+</script>
+</body>
+</html>
+
+
+

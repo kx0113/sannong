@@ -1,0 +1,27 @@
+
+<div class='wl-left'>
+
+       <!-- <div class='wl-tit  wl-tit1'><a href="../index.html"><img src="/App/Admin/View/Common/css/img/fk.png"></a><span>上午好，admin</span></div>-->
+        <ul class='nav nav-list bs-docs-sidenav nav-collapse collapse'>
+          <foreach name="left_menu" item="vo">
+              <li <notempty name="level_one_id"><eq name="level_one_id"  value="$vo.level_one.id">class="on"</eq></notempty>>
+                  <a <notempty name='vo.level_one.path'>href="{:u($vo['level_one']['path'])}"<else/>href="javascript:;"</notempty>>
+                    <i class="iconfont {$vo.level_one.icon}"></i>{$vo.level_one.name}
+
+                  </a>
+
+                <notempty name="vo.child">
+                  <div  <notempty name="level_one_id"><eq name="level_one_id"  value="$vo.level_one.id">style="display:block"</eq></notempty>>
+                    <ul class='nav-left-list'>
+                    <foreach name="vo.child" item="vv">
+                      <li>
+                          <a <notempty name='vv.path'>href="{:u($vv['path'])}"<else/>href="javascript:;"</notempty>  <eq name="level_second_id"  value="$vv.id">class="on"</eq>> {$vv.name}</a>
+                        </li>
+                    </foreach>
+                  </ul>
+                  </div>
+                </notempty>
+              </li>
+          </foreach>
+      </ul>
+</div>

@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>json</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+</head>
+<body>
+json
+<input type="button" onclick="sendJson()" value="点击">
+
+
+
+
+
+<input type="button" onclick="sendAdmin()" value="点击">
+<select>
+    <option value="">请选择区域...</option>
+</select>
+</body>
+
+<script>
+    function sendJson() {
+
+        var data={
+            "uid":'2',
+            "passkey":'28257d3d47af62fd7c4afacc532d5dec',
+            "title": "森林防火4dgdfgdfffffffffffffffffffffffffffffffgsfgdfgdfgdfg豆腐干地方地方士大夫似的士大夫士大夫士大夫士大夫士大夫士大夫",
+            "content": "章丘市森林防火警报dfdsgddddddddddddddddsssssssssssffffffffffffffffffffgdfgdfgdfg豆腐干地方地方士大夫似的ffffffffffffffffffffffgcbvsdfbdfsbdfghsgdfsgdfgdfgdfgdf",
+            "lng": "117.5464644452555555555522555545",
+            "lat": "36.6916dffdgfdgfdgfddfgfdgdfg72",
+            "location": "章丘市圣井镇危山景区",
+            "video": [
+                {
+                    "videoLocation": "章丘市圣井镇危山景区一号设备",
+                    "videoUrl": "http://open.ys7.com/openlive/e9cf14da7d16401282fd9e4203d778dc.m3u8"
+                },
+                {
+                    "videoLocation": "章丘市圣井镇危山景区二号设备",
+                    "videoUrl": "http://open.ys7.com/openlive/e9cf14da7d16401282fd9e4203d778dc.m3u8"
+                }
+            ],
+            "commander": [
+                {
+                    "commanderName": "李小强",
+                    "commanderPhone": "155635435"
+                },
+                {
+                    "commanderName": "李小强",
+                    "commanderPhone": "15563995435"
+                }
+            ]
+        };
+        $.ajax({
+            type : "POST",  //提交方式
+            url : "http://www.sannong.com/Manage/PublicApi/emergencyInfo",//注意！这个是跟上面不一样的地方
+            dataType: "json",
+            data : data,//数据，这里使用的是Json格式进行传输
+            success : function(result) {//返回数据根据结果进行相应的处理
+                alert(result);
+            }
+        });
+    }
+
+
+    function sendAdmin() {
+
+        $.ajax({
+            type : "POST",  //提交方式
+            url : "http://www.sannong.com/Manage/PublicApi/getUserList",//注意！这个是跟上面不一样的地方
+            dataType: "json",
+            data : {
+                "keywords" : '13805408851',
+                'uid'  :2,
+                'passkey':'28257d3d47af62fd7c4afacc532d5dec'
+            },//数据，这里使用的是Json格式进行传输
+            success : function(result) {//返回数据根据结果进行相应的处理
+                alert(result);
+            }
+        });
+    }
+</script>
+</html>

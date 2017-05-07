@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <script>
+        //10px 1rem;
+        !function(){function a(){if(document.documentElement.clientWidth<600){document.documentElement.style.fontSize=document.documentElement.clientWidth/32+"px"}else{document.documentElement.style.fontSize="16.875px"}}var b=null;window.addEventListener("resize",function(){clearTimeout(b),b=setTimeout(a,300)},!1),a()}(window);
+    </script>
+
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="__ROOT__/Style/css/normalize.css">
+        <link rel="stylesheet" href="__ROOT__/Style/css/main.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Style/css/css2.css">
+        <link rel="stylesheet" type="text/css" href="__ROOT__/Style/css/swiper.min.css">
+        <script src="__ROOT__/Style/js/vendor/modernizr-2.6.2.min.js"></script>
+        <style type="text/css">
+            .mm-top{
+                background-color: #fff;
+                padding: 1.5rem 1rem 1rem; 
+                margin-bottom: .7rem;
+            }
+            .mm-top h3{
+                font-size: 1.6rem;
+                color: #333;
+                margin-bottom: .4rem;
+            }
+            .mm-top p{
+                font-size: 1.2rem;
+                color: #666;
+            }
+            .mm-main{
+                background-color: #fff;
+                margin-bottom: .7rem;
+            }
+            .mm-tit {
+                padding-left: 1rem;
+                margin-bottom: .7rem;
+                
+            }
+            .mm-tit li{
+                border-bottom:1px solid #ddd;
+                height: 3.6rem;
+                line-height: 3.6rem ;
+                font-size: 1.4rem;
+                color: #333;
+            }
+            .mm-tit li:last-child{
+                border: none
+            }
+            .mm-tit li span{
+                font-size: 1.4rem;
+                color:#999 ;
+                display: inline-block;
+                width: 8.5rem;
+            }
+            .mm-bottom{
+                background-color: #fff;
+            }
+            .mm-bottom h3{
+                margin-left: 1rem;
+                border-bottom: 1px solid #ddd;
+                height: 3.5rem;
+                line-height: 3.5rem;
+                font-size: 1.5rem;
+                color: #333;
+            }
+            .mm-bottom div{
+                padding: 1rem;
+            }
+            .mm-bottom div p{
+                font-size: 1.2rem;
+                color: #333;
+                margin-bottom: .5rem;
+            }
+        </style>
+    </head>
+    <body class='bc1'>
+        <!-- <div class='loading'><img src="img/loading_more.gif" style='width:auto'></div> -->
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class='warp ' style='background:#f3f3f3;overflow: auto;'>
+            <div class='mm-top'>
+                <h3><{$info.title}></h3>
+            </div>
+            <div class='mm-main'>
+                <div class='swiper-container'>
+                    <div class='swiper-wrapper'>
+                    <volist name="info.images" id="vo">
+                        <div class='swiper-slide'><a href="" style='background:url(/Uploads/<{$vo}>)no-repeat center;height: 15rem;display: block;background-size:cover'></a></div>
+                    </volist> 
+                    </div>
+                    <div class='swiper-pagination'></div>
+                </div>
+                <div class='mm-tit'>
+                    <ul>
+                        <li>
+                            <span>消息来源：</span>
+                            <{$info.afrom}>
+                        </li>
+                        <li>
+                            <span>添加时间：</span>
+                            <{$info.addtime}>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+            <div class='mm-bottom'>
+                    <h3>消息详情：</h3>
+                    <div>
+                        <{$info.content}>
+                    </div>
+                    
+            </div>
+        </div>
+        <script type="text/javascript" src='__ROOT__/Style/js/jquery-1.11.2.min.js'></script>
+        <script type="text/javascript" src='__ROOT__/Style/js/swiper.min.js'></script>
+        <script src="__ROOT__/Style/js/plugins.js"></script>
+        <script src="__ROOT__/Style/js/main.js"></script>
+        <script type="text/javascript">
+            $('.loading').hide();
+            var swiper = new Swiper ('.swiper-container', {
+                pagination: '.swiper-pagination',
+                autoplay: 5000,
+                speed:300,
+                loop : true,
+            })
+        </script>
+
+    </body>
+</html>

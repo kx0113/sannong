@@ -1,0 +1,58 @@
+<div class='span3 wl-left'>
+       <div class='wl-tit wl-tit1'><img src="/App/Admin/View/Common/img/zx_03.png">智能物联控制管理平台</div>
+       <!-- <div class='wl-tit  wl-tit1'><a href="../index.html"><img src="/App/Admin/View/Common/css/img/fk.png"></a><span>上午好，admin</span></div>-->
+        <ul class='nav nav-list bs-docs-sidenav nav-collapse collapse'>
+            <li <eq name="menu_id"  value="1">class="on"</eq>>
+                 <a href="{:u('/admin/Index/index')}"> <i class="iconfont icon-sz"></i>设备实时数据</a>
+            </li>
+            <li <eq name="menu_id"  value="2">class="on"</eq>>
+                 <a href="{:u('/admin/monitor/index')}">  <i class="iconfont icon-monitor"></i>企业监控</a>
+            </li>
+
+            <li <eq name="menu_id"  value="3">class="on"</eq>>
+                 <a href="{:u('/admin/alarm/index')}"> <i class="iconfont icon-yujingshezhi"></i>设备预警</a>
+            </li>
+        <!-- <li><a href="{:u('/admin/controller/index')}"> <i class="iconfont icon-kongzhi">设备控制</a></li>-->
+            <li <eq name="menu_id"  value="4">class="on"</eq>>
+                 <a href="{:u('/admin/statis/index')}"><i class="iconfont icon-tongji"></i>统计报表</a>
+            </li>
+            <li <eq name="menu_id"  value="5">class="on"</eq>>
+                <a href="javascript:;"><i class="iconfont icon-xinxi"></i>病虫害信息</a>
+                <div <eq name="menu_id"  value="5">style="display:block"</eq>>
+                <a href="{:u('/admin/insectsInfo/index')}" <eq name="second_id"  value="50">class="on"</eq>><i class="iconfont icon-fenlei"></i>病虫害信息列表</a>
+                <a href="{:u('/admin/insectsInfo/add')}"  <eq name="second_id"  value="51">class="on"</eq>><i class="iconfont icon-xinzeng"></i>病虫害信息登记</a>
+                </div>
+            </li>
+            <li  <eq name="menu_id"  value="6">class="on"</eq>>
+                <a href="javascript:;"> <i class="iconfont icon-shebei"></i>设备管理</a>
+                <div <eq name="menu_id"  value="6">style="display:block"</eq>>
+                <a href="{:u('/admin/device/insectIndex')}"  <eq name="second_id"  value="60">class="on"</eq>> <i class="iconfont icon-xinxi"></i>病虫害设备管理</a>
+                <a href="{:u('/admin/monitor/monitorIndex')}"  <eq name="second_id"  value="61">class="on"</eq>> <i class="iconfont icon-monitor"></i>监控设备管理</a>
+                <a href="{:u('/admin/device/index')}"  <eq name="second_id"  value="62">class="on"</eq> > <i class="iconfont icon-icon"></i>监测设备管理</a>
+                </div>
+            </li>
+            <li <eq name="menu_id"  value="7">class="on"</eq>>
+                <a href="javascript:;"><i class="iconfont icon-yonghu"></i>用户管理</a>
+                <div <eq name="menu_id"  value="7">style="display:block"</eq>>
+                    <a href="{:u('/admin/user/userlist')}" <eq name="second_id"  value="72">class="on"</eq>> <i class="iconfont icon-renyuanliebiao"></i>用户列表</a>
+                    <a href="{:u('/admin/user/addUserIndex')}"<eq name="second_id"  value="71">class="on"</eq> > <i class="iconfont icon-xinzengkehu"></i>新增用户</a>
+                </div>
+            </li>
+
+
+            <li <eq name="menu_id"  value="8">class="on"</eq>>
+                <a href="javascript:;"> <i class="iconfont icon-shezhi"></i>系统管理</a>
+                <div  <eq name="menu_id"  value="8">style="display:block"</eq>>
+                <a href="{:u('/admin/area/town')}" <eq name="second_id"  value="80">class="on"</eq>> <i class="iconfont icon-quanbuquyu"></i>区域管理</a>
+                <a href="{:u('/admin/area/village')}" <eq name="second_id"  value="81">class="on"</eq>> <i class="iconfont icon-icon86"></i>地块管理</a>
+                <a href="{:u('/admin/deviceAdmin/index')}" <eq name="second_id"  value="82">class="on"</eq>> <i class="iconfont icon-guanliyuan"></i>设备管理员管理</a>
+            </div>
+        </li>
+
+
+
+
+
+
+    </ul>
+</div>

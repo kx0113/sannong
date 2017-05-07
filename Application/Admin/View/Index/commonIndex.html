@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>智能物联控制管理平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="_css_/znwl/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_css_/znwl/normalize.css">
+    <link rel="stylesheet" href="_css_/znwl/main.css">
+
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/statis.css">
+      <link rel="stylesheet" type="text/css" href="_css_/znwl/styles.css">
+
+    <script src="_js_/vendor/jquery-1.9.0.min.js"></script>
+    <script src="_js_/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row-fluid'>
+      <!--引入左侧导航开始1-->
+        <include file="Public:top_nav" />
+
+      <!--引入左侧导航结束-->
+          <div class='wl-right'>
+            <!--引入顶部导航开始-->
+            <include file="Public:left_menu" reflush="true"/>
+            <!--引入顶部导航结束-->
+
+          <div class='right_contain'>
+            <iframe runat="server" src="{:u('/admin/Index/statis')}" width="100%" height="900px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes"></iframe>
+             </div>
+          <div>
+          </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src='_js_/bootstrap.min.js'></script>
+<script src="_js_/plugins.js"></script>
+<script src="_js_/main.js"></script>
+<script type="text/javascript">
+    function sc() {
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.tab-main').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.tab-main').height(460)
+
+        }
+    }
+    sc();
+    fh();
+    $('.btn-navbar').click(function(event) {
+        /* Act on the event */
+        if ($(this).attr('data-ul') ==1) {
+            $(this).attr('data-ul','0')
+            $('.yc-nav').css('display','block');
+        }else{
+            $(this).attr('data-ul','1')
+            $('.yc-nav').css('display','none');
+        };
+
+    });
+    $('.btn-inverse').click(function(event) {
+        /* Act on the event */
+        window.history.go(-1);
+    });
+    window.onresize = function(){
+        fh();
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.tab-main').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.tab-main').height(460)
+
+        }
+    }
+    function fh () {
+        $('.tab-main .navbar label span').each(function(index, el) {
+            var lw = $('.tab-main .navbar label').width();
+            $(this).siblings('input').width(lw-$(this).width()-45);
+        });
+    }
+    $('.wl-left >ul >li').click(function(event) {
+        /* Act on the event */
+        $(this).addClass('on').find('div').css('display','block').parents('li').siblings().removeClass('on').find('div').css('display','none');
+    })
+
+
+    /*这是自己的代码*/
+
+    $("#area_town").change(function (o) {
+        stopPropagation(o);
+
+        var id = $(this).val();
+
+        $('#village_area').empty()
+
+        $.ajax({
+            url: "/admin/area/ajaxVillageArea",
+            data:{id:id},
+            type: "POST",
+            success: function(data){
+                var html = '<option value="">请选择地块</option>';
+
+                if(data.ret == 200)
+                {
+                    for(var i=0;i<data['data'].length;i++){
+
+                        html+= " <option value='"+data['data'][i]['id']+"'>"+data['data'][i]['area_name']+"</option>";
+
+                    }
+
+                }
+
+                $('#village_area').append(html);
+            }});
+
+
+    })
+
+
+
+
+
+    function stopPropagation(event) {
+
+        var e = window.event || event;
+
+        if (e.stopPropagation) { //如果提供了事件对象，则这是一个非IE浏览器
+
+            e.stopPropagation();
+
+        } else {
+            //兼容IE的方式来取消事件冒泡
+
+            window.event.cancelBubble = true;
+
+        }
+    }
+
+
+
+    $("#search").click(function(){
+
+
+        $("#search_form").submit();
+
+
+
+    })
+    $("#addDevice").click(function(){
+
+
+         window.location.href = "{:u('/admin/device/addIndex')}";
+
+    })
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="_assets_/img/favicon.png">
+    <title>智能物联控制管理平台</title>
+    <link href="_assets_/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="_assets_/lib/font-awesome/css/font-awesome.min.css">
+    <!--if lt IE 9script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    -->
+    <link rel="stylesheet" type="text/css" href="_assets_/lib/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css"> <!-- 日历 -->
+    <link href="_assets_/css/style.css" rel="stylesheet">
+    <style type="text/css">
+      #cl-wrapper {
+          padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="cl-wrapper" class="fixed-menu">
+            <!--Sidebar item function-->
+            <!--Sidebar sub-item function-->
+      <div id="pcont" class="container-fluid">
+        <div class="cl-mcont">
+          <div class="stats_bar">
+            <div data-step="2" data-intro="&lt;strong&gt;Beautiful Elements&lt;/strong&gt; &lt;br/&gt; If you are looking for a different UI, this is for you!." class="butpro butstyle">
+              <div class="sub">
+                <h2>基础站设备</h2><span id="total_clientes">{$base_num}</span>
+              </div>
+              <div class="stat"><span class="spk1">
+                  <canvas style="display: inline-block; width: 74px; height: 16px; vertical-align: top;" width="74" height="16"></canvas></span></div>
+            </div>
+            <div class="butpro butstyle">
+              <div class="sub"  onclick="switchPage('{:u('/Admin/alarm/secondIndex')}')">
+                <h2>标准站设备</h2><span>{$standard_num}</span>
+              </div>
+              <div class="stat"><span class="up"> </span></div>
+            </div>
+            <div class="butpro butstyle">
+              <div class="sub">
+                <h2>病虫害设备</h2><span>{$insects_num}</span>
+              </div>
+              <div class="stat"><span class="down"></span></div>
+            </div>
+            <div class="butpro butstyle">
+              <div class="sub">
+                <h2>企业监控</h2><span>{$monitor_num}</span>
+              </div>
+              <div class="stat"><span class="equal"></span></div>
+            </div>
+            <div class="butpro butstyle">
+              <div class="sub">
+                <h2>设备管理员</h2><span>{$admin_num}</span>
+              </div>
+              <div class="stat"><span class="spk2"></span></div>
+            </div>                    </div>
+          <div class="row dash-cols">
+            <div class="col-sm-6 col-md-6">
+              <div class="widget-block white-box calendar-box">
+                <div class="col-md-6 blue-box calendar no-padding">
+                  <div class="padding ui-datepicker"></div>
+                </div>
+                <div class="col-md-6">
+                  <div class="padding">
+                    <h2 class="text-center">{$day}</h2>
+                    <h1 class="day">{$day_num}</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="widget-block photo white-box weather-box">
+                <div class="col-md-6 padding photo">
+                  <h2 class="text-center">{$mouth}</h2>
+                  <h1 class="day">{$year}</h1>
+                </div>
+                <div class="col-md-6 red-box">
+                  <div class="padding text-center">
+                    <canvas id="sun-icon" width="130" height="215"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-6">
+              <div class="block">
+                <div class="header no-border">
+                  <h2>2016年同江市气温统计</h2>
+                </div>
+                <div data-step="3" data-intro="&lt;strong&gt;Unique Styled Plugins&lt;/strong&gt; &lt;br/&gt; We put love in every detail to give a great user experience!." class="content blue-chart">
+                  <div id="site_statistics" style="height:180px;"></div>
+                </div>
+                <div class="content">
+                  <div class="stat-data">
+                    <div class="stat-blue">
+                      <h2>{$avg}</h2><span>年平均气温</span>
+                    </div>
+                  </div>
+                  <div class="stat-data">
+                    <div class="stat-number">
+                      <div>
+                        <h2>{$avg}</h2>
+                      </div>
+                      <div>最高气温<br><span>(℃)</span</div>
+                    </div>
+                    <div class="stat-number">
+                      <div>
+                        <h2>{$min}</h2>
+                      </div>
+                      <div>最低气温<br><span>(℃)</span></div>
+                    </div>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row dash-cols">
+            <div class="col-sm-6 col-md-6">
+              <div class="block">
+                <div class="header">
+                  <h2>设备预警 </h2>
+                  <a href="javascript:void(0)"  onclick="switchPage('{:u('/Admin/alarm/index')}')">查看设备详情>></a>
+
+                  <script type="text/javascript">
+
+                   function  switchPage(url){
+
+                      window.parent.location.href = url;
+                   }
+
+                  </script>
+                </div>
+                <div class="content no-padding">
+                  <ul class="items">
+                    <volist name='alarm_device_list.list' id="vo" offset="0" length='4'>
+                        <li>
+                          <i class="fa fa-file-text"></i>{$vo.area_name}{$vo.device_name}
+                          <span class="pull-right value"><eq name="vo['class']" value='BASE'>基础站</else>标准站</eq></span>
+                          <small>土壤温度-2℃,土壤湿度-2℃,</small>
+                        </li>
+                    </volist>
+                  </ul>
+                </div>
+                <div class="total-data bg-blue"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  <h2>预警设备 <b class="caret"></b><span class="pull-right">共{$alarm_device_list.count}台</span></h2></a>
+                  <!-- <ul class="dropdown-menu">
+                    <li><a href="#">Print receipt</a></li>
+                    <li><a href="#">Send invoice to...</a></li>
+                    <li><a href="#">Payment</a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4">
+              <div class="widget-block">
+                <div class="white-box">
+                  <div class="fact-data">
+                    <div data-bar-color="#FD9C35" data-track-color="#EFEFEF" data-percent="8h" class="epie-chart"><span style="line-height: 102px;">8h</span></div>
+                  </div>
+                  <div class="fact-data no-padding text-shadow">
+                    <h3>光照时长</h3>
+                    <h2>8h</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="_assets_/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="_assets_/js/cleanzone.js"></script>
+    <script src="_assets_/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="_assets_/lib/skycons/skycons.js" type="text/javascript"></script><!-- 天气 -->
+    <script type="text/javascript" src="_assets_/lib/jquery.sparkline/jquery.sparkline.min.js"></script><!-- 小图表 -->
+    <script src="_assets_/lib/jquery.easypiechart/jquery.easypiechart.js" type="text/javascript"></script>
+    <script type="text/javascript" src="_assets_/lib/jquery.flot/jquery.flot.js"></script><!-- 大图表 -->
+    <script type="text/javascript" src="_assets_/lib/jquery.flot/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="_assets_/lib/jquery.flot/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="_assets_/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="_assets_/js/page-dashboard.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      	//initialize the javascript
+      	App.init();
+      	App.dashboard();
+      });
+    </script>
+  </body>
+</html>

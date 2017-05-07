@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>智能物联控制管理平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="_css_/znwl/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_css_/znwl/normalize.css">
+    <link rel="stylesheet" href="_css_/znwl/main.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/styles.css">
+    <script src="_js_/vendor/jquery-1.9.0.min.js"></script>
+    <script src="_js_/vendor/modernizr-2.6.2.min.js"></script>
+    <style>
+        .modal-body p span{
+            display: inline-block;
+            width:60px;
+        }
+    </style>
+
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row-fluid'>
+      <!--引入左侧导航开始1-->
+        <include file="Public:top_nav" />
+      <!--引入左侧导航结束-->
+        <div class='wl-right'>
+          <!--引入顶部导航开始-->
+          <include file="Public:left_menu" reflush="true"/>
+          <!--引入顶部导航结束-->
+          <div class='right_contain'>
+
+            <div class='mabo'>
+                <i></i><a>设备实时数据</a>/<span>传感器的参数</span>
+            </div>
+            <div class="wr-top" style="overflow-y: auto; height: 753px;">
+                <div class="row-fluid" style="background:#fff;">
+                    <div style="padding: 30px 40px;">
+                        <div class="xgmm">
+
+                                <table class="table">
+                                  <caption style="">{$device_info.area_name}{$device_info.device_name}传感器的参数</caption>
+                                  <thead>
+                                    <tr>
+                                    <th>参数</th>
+                                    <th>最小值</th>
+                                    <th>最大值</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <foreach name='param_array' item="vo">
+                                    <tr data-tr="{$vo.id}">
+                                      <td>{$vo.param_name}</td>
+                                      <td>
+                                        <div class="param-num"  data-li="{$vo.min_value}">
+                                         {$vo.min_value}
+                                         <span>{$vo.param_unit}</span>
+
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="param-num" data-li="{$vo.max_value}">
+                                         {$vo.max_value}
+                                         <span>{$vo.param_unit}</span>
+                                        </div>
+                                      </td>
+                                      <td><eq name="vo.show" value="1">显示<else/>隐藏</eq></td>
+                                      <td><button class="btn btn-primary btn-lg reviser" data-toggle="modal" data-target="#myModal">修改</button></td>
+                                    </tr>
+                                  </foreach>
+                                  </tbody>
+                                </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+				</button>
+                <input type="hidden" id="param_id" value=""/>
+				<h4 class="modal-title" id="myModalLabel">
+					参数修改
+				</h4>
+			</div>
+			<div class="modal-body">
+                <p><span>参数名</span><span>水位</span></p>
+                <p><span>最小值</span><input type="text"></p>
+                <p><span>最大值</span><input type="text"></p>
+                <p>
+                <span>最小值</span>
+                <select id="show">
+                    <option value="0">隐藏</option>
+                    <option value="1">显示</option>
+                </select>
+                </p>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					关闭
+				</button>
+				<button type="button" id="modelSub"class="btn btn-primary"  data-dismiss="modal">
+					提交更改
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script type="text/javascript" src='_js_/bootstrap.min.js'></script>
+<script src="_js_/plugins.js"></script>
+<script src="_js_/main.js"></script>
+<script type="text/javascript">
+
+   $(function () { $('#myModal').click(function(){
+
+
+
+
+   })
+ });
+   $('.reviser').click(function () {
+       $('.modal-body p').eq(0).html($(this).parents('tr').find('td').eq(0).html())
+       $('.modal-body p').eq(1).find('input').val($(this).parents('tr').find('td').eq(1).find('div').attr('data-li'))
+       $('.modal-body p').eq(2).find('input').val($(this).parents('tr').find('td').eq(2).find('div').attr('data-li'))
+       var select_opt =  $('#show');
+
+
+       if($(this).parents('tr').find('td').eq(3).html() == '显示'){
+           $('.modal-body p').eq(3).find('select').attr('value','显示');
+
+           select_opt.val(1);
+
+       }else{
+           $('.modal-body p').eq(3).find('select').attr('value','隐藏');
+
+           select_opt.val(0);
+
+       }
+
+
+       $('#param_id').val($(this).parents('tr').attr('data-tr'))
+
+
+   })
+   $('#modelSub').click(function () {
+       //使用ajax 提交数据
+
+
+       var id = $('#param_id').val();
+       var  min= $('.modal-body p').eq(1).find('input').val();
+       var  max = $('.modal-body p').eq(2).find('input').val();
+       var show = $('.modal-body p').eq(3).find('select').val();
+
+
+       $.ajax({
+           url: "/admin/device/setParam",
+           data:{id:id,min:min,max:max,show:show},
+           type: "POST",
+           success: function(data){
+
+               if(data.ret == 200){
+
+                   alert('数据更成功');
+                   location.reload();
+
+               }else{
+
+                   alert('数据更失败');
+               }
+
+
+           }});
+
+
+   })
+
+
+
+    function sc() {
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.wr-top').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.wr-top').height(460)
+
+        }
+    }
+    sc();
+
+    window.onresize = function(){
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.wr-top').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.wr-top').height(460)
+
+        }
+    }
+    $('.wl-left >ul >li').click(function(event) {
+        /* Act on the event */
+        $(this).addClass('on').find('div').css('display','block').parents('li').siblings().removeClass('on').find('div').css('display','none');
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>智能物联控制管理平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="_css_/znwl/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_css_/znwl/normalize.css">
+    <link rel="stylesheet" href="_css_/znwl/main.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/styles.css">
+    <script src="_js_/vendor/jquery-1.9.0.min.js"></script>
+    <script src="_js_/vendor/modernizr-2.6.2.min.js"></script>
+    <style type="text/css">
+        .sla span{
+            font-size: 14px;
+            color: #333;
+            display: inline-block;
+            width: 95px;
+            float: left;
+            height: 30px;
+            line-height: 30px;
+        }
+        .sdkl a{
+            display: block;
+            text-align: center;
+            position: relative;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .sdkl a{
+            padding-top: 67px;
+            background: url(/App/Admin/View/Common/img/cs_0z.png) no-repeat center 5px;
+            /* white-space: normal; */
+        }
+        .sdkl a.on{
+            background: url(/App/Admin/View/Common/img/cs_07.png) no-repeat center 5px;
+            color: #109b48;
+        }
+        .sdkl a:nth-child(6n+1){
+            margin-left: 0px!important;
+        }
+        .sdkl a.on:after{
+            content: '';
+            display: block;
+            position: absolute;
+            right: 23%;
+            top: 0px;
+            width: 26px;
+            height: 26px;
+            z-index: 10;
+            background: url(/App/Admin/View/Common/img/fc_03.png) no-repeat center;
+        }
+        .sdkl a span{
+            display: block;
+        }
+        .sdkl{
+            border: 1px solid #ddd;
+            background-color: #f6f6f6;
+            border-radius: 10px;
+            white-space: nowrap;
+            padding: 20px 0 10px;
+        }
+        .gk-li> h3{
+            font-size: 20px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row-fluid'>
+      <!--引入左侧导航开始1-->
+        <include file="Public:top_nav" />
+
+      <!--引入左侧导航结束-->
+        <div class='wl-right'>
+          <!--引入顶部导航开始-->
+          <include file="Public:left_menu" reflush="true"/>
+          <!--引入顶部导航结束-->
+           <div class='right_contain'>
+                <div class='mabo'>
+                    <i></i><a>设备管理</a>/<span>更新病虫害设备</span>
+                </div>
+                <div class='tab-main cle'>
+                <div class="span12">
+                    <!-- block -->
+                    <div class="block">
+                        <div class="gk-li" style='border-bottom:1px solid #ddd;'>
+                            <h3>设备基本信息</h3>
+                            <form method="post" id="insect" action="/admin/device/updateInsectsDevice" enctype="multipart/form-data">
+                                <div>
+                                    <ul>
+                                        <li class='cle'>
+                                            <span>地点类型：</span>
+                                            <label>
+                                                <select id="type" name="type" onchange="stype();">
+                                                    <option value="">请选择设备地点类型...</option>
+                                                    <option value="1" <eq name="type" value="1">selected</eq>>室内</option>
+                                                    <option value="2" <eq name="type" value="2">selected</eq>>室外</option>
+                                                </select>
+                                            </label>
+                                        </li>
+
+                                        <input type="hidden" id="parent_id" name="parent_id" >
+                                        <input type="hidden"  name="id"  value="{$id}">
+
+                                        <li class='cle'>
+                                            <span>设备编号：</span>
+                                            <label>
+                                                <input type="text" class="padd" id="device_code" name="device_code" value="{$device_code}">
+                                                <eq name="state" value="000001">
+                                                    <b style="color:#ff4747;line-height:30px;display:inline-block;position: relative; top: -4px;">设备编号唯一</b>
+                                                </eq>
+                                            </label>
+
+                                        </li>
+                                        <li class='cle'>
+                                            <span>设备名称：</span>
+                                            <label>
+                                                <input type="text" class="padd" id="device_name" name="device_name"  value="{$device_name}">
+                                                <eq name="state" value="000002">
+                                                    <b style="color:#ff4747;line-height:30px;display:inline-block;position: relative; top: -4px;">设备名称唯一</b>
+                                                </eq>
+                                            </label>
+                                        </li>
+
+                                        <include file="Public:select_area" />
+
+                                        <li class='cle'>
+                                            <span>管理员：</span>
+                                            <select id="admin" name="staff" onchange="stype();">
+                                                <option value="">请选管理员...</option>
+                                                <notempty name="admin_list">
+                                                    <foreach name="admin_list" item="vo">
+                                                        <option value="{$vo.id}" <eq name="vo.id" value="$admin">selected</eq>>{$vo.name}</option>
+                                                    </foreach>
+                                                </notempty>
+                                            </select>
+                                        </li>
+
+                                        <!-- <li class='cle' id="video_urls" >
+                                            <span>视频地址：</span>
+                                            <label>
+                                                <input type="text" style="width: 600px" class="padd" id="video_url" name="video_url" value="{$video_url}">
+                                            </label>
+                                        </li> -->
+                                        <li   class='cle' id="channel_number" >
+                                            <span>视频通道号：</span>
+                                            <label>
+                                                <input type="text" class="padd" id="channel_number" name="channel_number" value="{$channel_number}">
+                                            </label>
+                                        </li>
+
+                                        <li class='cle'>
+                                            <span>备注：</span>
+                                            <label>
+                                                <textarea class="padd" id="remark" name="remark">{$remark}</textarea>
+                                            </label>
+                                        </li>
+                                        <li class='cle' >
+                                            <span >物联网设备名称：</span>
+                                            <label>
+                                                <notempty name="bnewName">
+                                                    <img src="/app/admin/view/common/img/base_on.png" style="width:5%" />
+                                                    <a href="javascript:void(0)">{$bnewName}</a>
+                                                </notempty>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                        <div class='gk-li'>
+                            <h3>绑定监测设备</h3>
+                            <div>
+                                <div class='sla'>
+                                    <span>设备筛选：</span>
+                                    <label>
+                                        <select class="device_class">
+                                            <option value=""  >选择监测设备类型..</option>
+                                            <option value="1"  >基础站</option>
+                                            <option value="1"  >表准站</option>
+                                        </select>
+                                        <select class="device_admin">
+                                            <option value=""  >选择管理员..</option>
+                                            <notempty name="admin_list" >
+                                                <foreach name="admin_list"  item="vo">
+                                                    <option value="{$vo.id}"   >{$vo.name}</option>
+                                                </foreach>
+                                            </notempty>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class='sdkl cle'>
+
+
+                                </div>
+                                <p class="a-btn" style="padding-left:95px;">
+                                    <a href="javascript:void(0)" class="on" onclick="device_sub()">保存</a>
+                                    <a href="">取消</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /block -->
+                </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src='_js_/bootstrap.min.js'></script>
+<script src="_js_/plugins.js"></script>
+<script src="_js_/main.js"></script>
+
+
+<script>
+
+    function device_sub()
+    {
+        if(yanzheng()){
+
+            $("#insect").submit();
+        }
+    }
+    function yanzheng(){
+        if($('#type').val()==''){
+            alert('请填写设备地点类型!');
+            return false;
+        }else  if($('#device_code').val()==''){
+            alert('请填写设备编号!');
+            return false;
+        }else  if($('#device_name').val()==''){
+            alert('请填写设备名称！');
+            return false;
+        }else  if($('#town_area').val()==0){
+            alert('请选择区域！');
+            return false;
+        }else  if($('#village_area').val()==0){
+            alert('请选择地块！');
+            return false;
+        }else if($('#staff').val()==0){
+            alert('请填写管理员！');
+            return false;
+        }else{
+            return true;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    function sc() {
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.tab-main').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.tab-main').height(460)
+
+        }
+    }
+    sc();
+
+    $('.btn-navbar').click(function(event) {
+        /* Act on the event */
+        if ($(this).attr('data-ul') ==1) {
+            $(this).attr('data-ul','0')
+            $('.yc-nav').css('display','block');
+        }else{
+            $(this).attr('data-ul','1')
+            $('.yc-nav').css('display','none');
+        };
+
+    });
+
+    window.onresize = function(){
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.tab-main').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.tab-main').height(460)
+
+        }
+    }
+
+    $('.wl-left >ul >li').click(function(event) {
+        /* Act on the event */
+        $(this).addClass('on').find('div').css('display','block').parents('li').siblings().removeClass('on').find('div').css('display','none');
+    })
+    $(document).on("click", ".sdkl a", function(){
+        $(this).toggleClass('on').siblings('a').removeClass('on');
+        var device_id = $(this).attr('data-value')
+
+
+        $("#parent_id").val(device_id);
+
+
+    })
+
+    $(".device_class").change(function(){
+
+
+        searchDevice();
+    })
+
+    $(".device_admin").change(function(){
+
+
+        searchDevice();
+
+    })
+
+
+    function searchDevice()
+    {
+
+
+        //获取地区
+        var village_area = $('#village_area').val();
+
+        var town_area = $('#town_area').val();
+
+        var device_class = $('.device_class').val();
+
+        var device_admin = $('.device_admin').val();
+
+
+        if(town_area == '')
+        {
+            alert('请填写区域！');
+            return false;
+        }else if(village_area == ''){
+
+            alert('请填写区域！');
+            return false;
+
+        }
+
+        $('.sdkl').empty();
+
+        $.ajax({
+            url: "/admin/device/ajaxDeviceList",
+            data:{village_area:village_area,class:device_class,admin:device_admin},
+            type: "POST",
+            success: function(data){
+                var html='';
+
+                if(data.ret == 200)
+                {
+                    for(var i=0;i<data['data'].length;i++){
+
+//                        var img_url = 'style="background-image:url';
+//
+//                        if(data['data'][i]['class'] == 'BASE')
+//                        {
+//
+//                            img_url = "('/app/admin/view/common/img/base_off.png')";
+//
+//                        }else if(data['data'][i]['class'] == 'STANDARD'){
+//
+//                            img_url = "('/app/admin/view/common/img/stand_off.png')";
+//
+//                        }
+
+                        html+=" <a href=\"javascript:;\"  data-value=\'"+data['data'][i]['id']+"\'class=\'span2\'>"
+                                +"<span>"+data['data'][i]['device_name']+data['data'][i]['area_name']+"</span>"
+                                +"<span>"+data['data'][i]['device_code']+"</span>"
+                                +"</a>";
+
+                    }
+
+                }
+
+                $('.sdkl').append(html);
+            }});
+
+
+
+
+    }
+
+
+</script>
+</body>
+</html>

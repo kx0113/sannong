@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>智能物联控制管理平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="_css_/znwl/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_css_/znwl/normalize.css">
+    <link rel="stylesheet" href="_css_/znwl/main.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/styles.css">
+    <script src="_js_/vendor/jquery-1.9.0.min.js"></script>
+    <script src="_js_/vendor/modernizr-2.6.2.min.js"></script>
+    <style>
+        .in > div:nth-child(2){
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+
+        }
+        .in > div:nth-child(2) a{
+            padding: 0 12px;
+            height:33px;
+            line-height:33px;
+            display: inline-block;
+            border:1px solid #ddd;
+            margin-left: 5px;
+            border-radius: 8px;
+        }
+        .in > div:nth-child(2) span{
+            padding: 0 12px;
+            height:33px;
+            line-height:33px;
+            display: inline-block;
+            border:1px solid #ddd;
+            margin-left: 5px;
+            border-radius: 8px;
+        }
+        .in > div:nth-child(2) span.current{
+            background-color: #66b534;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row-fluid'>
+      <!--引入左侧导航开始1-->
+        <include file="Public:top_nav" />
+
+      <!--引入左侧导航结束-->
+        <div class='wl-right'>
+          <!--引入顶部导航开始-->
+          <include file="Public:left_menu" reflush="true"/>
+          <!--引入顶部导航结束-->
+            <div class='right_contain'>
+
+                  <div class='mabo'>
+                      <i></i><a>系统管理</a>/<span>区域列表</span>
+                  </div>
+                  <div class='tab-main cle'>
+                <div class="span12">
+                    <!-- block -->
+                    <div class="block">
+                        <form method="post" id="search_form" action='/admin/area/village' enctype="multipart/form-data">
+                            <div class="navbar navbar-inner block-header pos">
+                                <label class='span2'>
+                                    <select name="area_town" id="area_town">
+                                        <option value="" >请选择乡/镇</option>
+                                        <notempty name="town_area_list">
+                                            <foreach name="town_area_list" item="vo">
+                                                <option value="{$vo.id}" <eq name="vo.id" value="$town_area_info.id">selected</eq>>{$vo.area_name}</option>
+                                            </foreach>
+                                        </notempty>
+                                    </select>
+                                </label>
+                                <!--<label class='span2'>-->
+                                    <!--<select name="village_area" id="village_area">-->
+                                        <!--<option value="">请选择地块</option>-->
+                                        <!--<notempty name="village_area_list">-->
+                                            <!--<foreach name="village_area_list" item="vo">-->
+                                                <!--<option value="{$vo.id}"  <eq name="vo.id" value="$village_area_info.id">selected</eq>>{$vo.area_name}</option>-->
+                                            <!--</foreach>-->
+                                        <!--</notempty>-->
+                                    <!--</select>-->
+                                <!--</label>-->
+                                <label class='span4'>
+                                    <input type='text'placeholder='地块' style='width:120px; margin-rigth:0' name="keywords"  value='<notempty name="keywords">{$keywords}</notempty>'>
+                                    <a href="javascript:void(0);" class='btn span1'  id="search" style='margin-left:0!important'>查询</a>
+                                    <a href="{:u('/admin/area/addVillage')}" class='btn span1' id="addVillege"style='width:86px;background:#66b534!important;'>新加地块</a>
+                                </label>
+                            </div>
+                        </form>
+                        <div class="block-content collapse   in">
+                            <div class="span12 bgg" style="float: none">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>区域</th>
+                                        <th>地块</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <notempty name="village_list">
+                                        <foreach name="village_list.list" item="vo" key="k">
+                                            <tr data-in='0'>
+                                                <td>{$k+1}</td>
+                                                <td>{$vo.area_name}</td>
+                                                <td>{$vo.village_name}</td>
+                                                <td class=''>
+                                                    <a style='color:#fff'   class="btn btn-primary" href="{:u('/admin/area/updateVillage',array('id'=>$vo['id']))}">编辑</a>
+                                                    <a class=" del btn btn-danger"  href="javascript:void(0);" onclick="javascript:switchs('delArea','{$vo.id}');" style='color:#fff' data-nub='0'>删除</a>
+                                                </td>
+                                            </tr>
+                                        </foreach>
+                                    </notempty>
+                                    </tbody>
+                                </table>
+
+                                <script>
+                                    function switchs(url,id){
+                                        var vv = confirm("确定要删除吗？");
+
+                                        if(vv)
+                                        {
+                                            $.ajax({
+                                                url:"{:U('"+url+"')}",
+                                                type:"POST",
+                                                dataType:"json",
+                                                data:{id:id},
+                                                success:function(data){
+                                                    if(data.ret == 200){
+                                                        if(data.data.status == '000000')
+                                                        {
+                                                            alert('删除成功');
+                                                            location.reload();
+
+                                                        }else{
+
+                                                            alert('删除失败');
+
+                                                        }
+
+                                                    }
+                                                }
+                                            });
+
+                                        }else{
+
+                                            return false;
+                                        }
+
+                                    }
+                                </script>
+                            </div>
+                            {$village_list.page}
+                        </div>
+                    </div>
+                    <!-- /block -->
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src='_js_/bootstrap.min.js'></script>
+<script src="_js_/plugins.js"></script>
+<script src="_js_/main.js"></script>
+<script type="text/javascript">
+    function sc() {
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.tab-main').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.tab-main').height(460)
+
+        }
+    }
+    sc();
+    fh();
+    $('.btn-navbar').click(function(event) {
+        /* Act on the event */
+        if ($(this).attr('data-ul') ==1) {
+            $(this).attr('data-ul','0')
+            $('.yc-nav').css('display','block');
+        }else{
+            $(this).attr('data-ul','1')
+            $('.yc-nav').css('display','none');
+        };
+
+    });
+
+    window.onresize = function(){
+        fh();
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.tab-main').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.tab-main').height(460)
+
+        }
+    }
+    function fh () {
+        $('.tab-main .navbar label span').each(function(index, el) {
+            var lw = $('.tab-main .navbar label').width();
+            $(this).siblings('input').width(lw-$(this).width()-45);
+        });
+    }
+    $('.wl-left >ul >li').click(function(event) {
+        /* Act on the event */
+        $(this).addClass('on').find('div').css('display','block').parents('li').siblings().removeClass('on').find('div').css('display','none');
+    })
+
+
+
+    $("#area_town").change(function (o) {
+        stopPropagation(o);
+
+        var id = $(this).val();
+
+        $('#village_area').empty()
+
+        $.ajax({
+            url: "/admin/area/ajaxVillageArea",
+            data:{id:id},
+            type: "POST",
+            success: function(data){
+                var html = '<option value="">请选择地块</option>';
+
+                if(data.ret == 200)
+                {
+                    for(var i=0;i<data['data'].length;i++){
+
+                        html+= " <option value='"+data['data'][i]['id']+"'>"+data['data'][i]['area_name']+"</option>";
+
+                    }
+
+                }
+
+                $('#village_area').append(html);
+            }});
+
+
+    })
+
+
+
+    function stopPropagation(event) {
+
+        var e = window.event || event;
+
+        if (e.stopPropagation) { //如果提供了事件对象，则这是一个非IE浏览器
+
+            e.stopPropagation();
+
+        } else {
+            //兼容IE的方式来取消事件冒泡
+
+            window.event.cancelBubble = true;
+
+        }
+    }
+
+
+
+    $("#search").click(function(){
+
+
+        $("#search_form").submit();
+
+
+
+    })
+
+
+</script>
+</body>
+</html>

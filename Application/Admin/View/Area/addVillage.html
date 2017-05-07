@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>智能物联控制管理平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="_css_/znwl/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_css_/znwl/normalize.css">
+    <link rel="stylesheet" href="_css_/znwl/main.css">
+    <link rel="stylesheet" type="text/css" href="_css_/znwl/styles.css">
+    <script src="_js_/vendor/jquery-1.9.0.min.js"></script>
+    <script src="_js_/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row-fluid'>
+      <!--引入左侧导航开始1-->
+        <include file="Public:top_nav" />
+
+      <!--引入左侧导航结束-->
+        <div class='wl-right'>
+          <!--引入顶部导航开始-->
+          <include file="Public:left_menu" reflush="true"/>
+          <!--引入顶部导航结束-->
+            <div class='right_contain'>
+              <div class='mabo'>
+                  <i></i><a>系统管理</a>/<span>新增区块</span>
+              </div>
+
+              <div class="wr-top" style="overflow-y: auto; height: 753px;">
+                <div class="row-fluid" style="background:#fff;">
+                    <div style="padding: 30px 40px;">
+                        <div class="xgmm">
+                            <form name="updatePass"  method="post" action="/admin/area/addVillageInfo">
+                                <ul>
+                                    <li>
+                                        <span>所在区域：</span>
+                                        <select name="area_town" id="area_town">
+                                            <option value="" >请选择乡/镇</option>
+                                            <notempty name="town_area_list">
+                                                <foreach name="town_area_list" item="vo">
+                                                    <option value="{$vo.id}" <eq name="vo.id" value="$village_info.parent_id">selected</eq>>{$vo.area_name}</option>
+                                                </foreach>
+                                            </notempty>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <span>地块名：</span>
+                                        <input type="text" name="name" value="{$village_info.area_name}">
+                                        <eq name="state" value="000002">< <b style="color:#ff4747">这个地块名已经存在</b></eq>
+                                    </li>
+
+                                    <li>
+                                        <button type="submit">
+                                            保存
+                                        </button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src='_js_/bootstrap.min.js'></script>
+<script src="_js_/plugins.js"></script>
+<script src="_js_/main.js"></script>
+<script type="text/javascript">
+    function sc() {
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.wr-top').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.wr-top').height(460)
+
+        }
+    }
+    sc();
+
+    window.onresize = function(){
+        if ($(window).height() >= 660) {
+            var win = $(window).height()
+            $('.container-fluid >.row-fluid').height(win);
+            $('.wr-top').height(win-200)
+
+        }else{
+            $('.container-fluid >.row-fluid').height(660);
+            $('.wr-top').height(460)
+
+        }
+    }
+    $('.wl-left >ul >li').click(function(event) {
+        /* Act on the event */
+        $(this).addClass('on').find('div').css('display','block').parents('li').siblings().removeClass('on').find('div').css('display','none');
+    })
+</script>
+</body>
+</html>

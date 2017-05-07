@@ -1,0 +1,57 @@
+<li class='cle'>
+    <span>区域：</span>
+    <label>
+        <select id="town_area" name="town_area" >
+            <option value="">请选择区域...</option>
+            <notempty name="town_area_list">
+                <foreach name="town_area_list" item="vo">
+                    <option value="{$vo.id}" <eq name="vo.id" value="$town_area_info.id">selected</eq>>{$vo.area_name}</option>
+                </foreach>
+            </notempty>
+        </select>
+    </label>
+</li>
+
+<li class='cle'>
+    <span>地块：</span>
+    <label>
+        <select id="village_area" name="village_area" >
+            <option value="">请选择地块...</option>
+            <notempty name="village_area_list">
+                <foreach name="village_area_list" item="vo">
+                    <option value="{$vo.id}"  <eq name="vo.id" value="$village_area_info.id">selected</eq>>{$vo.area_name}</option>
+                </foreach>
+            </notempty>
+        </select>
+    </label>
+</li>
+
+<script type="text/javascript">
+
+    $("#town_area").change(function () {
+        var id = $(this).val();
+
+        $('#village_area').empty()
+
+        $.ajax({
+            url: "/admin/area/ajaxVillageArea",
+            data:{id:id},
+            type: "POST",
+            success: function(data){
+                var html = '<option value="">请选择地块</option>';
+
+                if(data.ret == 200)
+                {
+                    for(var i=0;i<data['data'].length;i++){
+
+                        html+= " <option value='"+data['data'][i]['id']+"'>"+data['data'][i]['area_name']+"</option>";
+
+                    }
+                }
+
+                $('#village_area').append(html);
+            }});
+
+
+    })
+</script>

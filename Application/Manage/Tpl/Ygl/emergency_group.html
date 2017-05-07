@@ -1,0 +1,43 @@
+<li class='d'>
+    <span>群分类</span>
+    <select name="cate_id" id='cid'>
+        <option value="123456789" >请选择...</option>
+        <volist name="group_cate" id="vo">
+            <option value="<{$vo.id}>" <if condition="$info['cate_id'] eq $vo['id']">selected</if>><{$vo.name}></option>
+        </volist>
+    </select>
+</li>
+<li>
+    <span>群账号</span>
+    <select id="group_account" name="account">
+        <if condition="$info['account']">
+            <volist name="group" id="vo">
+                <eq name="vo.id" value="$info['account']">
+                    <option value="<{$vo.id}>" <if condition="$info['account'] eq $vo['id']">selected</if>><{$vo.group_account}></option>
+                </eq>
+            </volist>
+        </if>
+    </select>
+</li>
+<script type="text/javascript">
+    $('#cid').change(function(){
+        var cid= $("#cid").find("option:selected").val();
+        areaChange(cid);
+    });
+    function areaChange(cid){
+        if(cid){
+            $.post("<{:U('step_group_cate',array('m'=>'group_cate'))}>",
+                    {cid:cid},
+                    function(data) {
+                        $("#group_account option").remove();
+                        var obj = jQuery.parseJSON(data);
+                        var t = obj.result.length;
+                        for (var o = 0;o<t;o++){
+                            var p ='<option value='+obj.result[o].id+'>'+obj.result[o].group_account+'</option>';
+                            $('#group_account').append(p);
+                        }
+                    }
+            );
+        }
+    }
+</script>

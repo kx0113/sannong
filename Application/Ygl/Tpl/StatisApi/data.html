@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <script>
+        //10px 1rem;
+        !function(){function a(){if(document.documentElement.clientWidth<600){document.documentElement.style.fontSize=document.documentElement.clientWidth/32+"px"}else{document.documentElement.style.fontSize="16.875px"}}var b=null;window.addEventListener("resize",function(){clearTimeout(b),b=setTimeout(a,300)},!1),a()}(window);
+        </script>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->  
+        <link rel="stylesheet" type="text/css" href="/style/css/swiper.min.css">
+        <style type="text/css">
+        html, body, div, span,
+		h1, h2, h3, h4, h5, h6, p, em, img, strong, i,
+		dl, dt, dd, ol, ul, li,
+		form, label,
+		table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0;}
+		img { border: none; vertical-align: top;}
+		a { text-decoration: none; outline: none;}
+		ul { list-style: none; }
+		table { border-collapse: collapse; border-spacing: 0; }
+		html,body{
+		    font-family: '微软雅黑';
+		    line-height: 1.4;
+		    font-size: 1.2rem;
+		}
+		html,
+		button,
+		input,
+		select,
+		textarea {
+		    color: #222;
+		}
+		h1,h2,h3{
+		    font-weight: 100;
+		}
+
+		/*
+		 * Remove text-shadow in selection highlight: h5bp.com/i
+		 * These selection declarations have to be separate.
+		 * Customize the background color to match your design.
+		 */
+		html,body,.warp{
+			height: 100%;
+			background-color: #f3f3f3;
+		}
+		::-moz-selection {
+		    background: #b3d4fc;
+		    text-shadow: none;
+		}
+
+		::selection {
+		    background: #b3d4fc;
+		    text-shadow: none;
+		}
+        .cle{
+		    zoom: 1;
+		}
+		.cle:before,
+		.cle:after {
+		    content: " "; /* 1 */
+		    display: table; /* 2 */
+		}
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button{
+		    -webkit-appearance: none !important;
+		    margin: 0; 
+		}
+		input,select,a{
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+		}
+		.cle:after {
+		    clear: both;
+		}
+		.top{
+			width: 100%;
+			height: 20rem;
+			overflow: hidden;
+			background-color: #fff;
+			position: relative;
+			border-bottom: 1px solid #e8e8e8;
+			margin-bottom: .8rem;
+		}
+		.swiper-slide > div{
+			width: 100%;
+			height: 18rem;
+			padding-top: 2rem;
+		}
+		.swiper-wrapper{
+			height: 20rem;
+		}
+		.swiper-pagination-bullet-active{
+			background-color: #109b48;
+		}
+		.bottom{
+			background-color: #fff;
+		}
+		.bottom li{
+			border-top: 1px solid #e8e8e8;
+			height: 4rem;
+		}
+		.bottom li .li-left{		
+			display: inline-block;
+			float: left;
+			height: 4rem;
+			line-height: 4rem				
+		}
+		.bottom li .li-right{		
+			display: inline-block;
+			float: right;
+			height: 4rem;
+			line-height: 4rem				
+		}
+		.bottom li .li-left span{
+			display: block;
+			padding-left: 3.3rem;
+			font-size: 1.4rem;
+			color: #333;
+			background: url(/style/img/qw.png) no-repeat .8rem center;
+			background-size:  auto 1.5rem;
+		}
+		.bottom li .li-right span{
+			font-size: 1.4rem;
+			color: #333;
+			padding: 0 1rem;
+		}
+		.bottom li .li-left span.on{
+			display: block;
+			padding-left: 3.3rem;
+			font-size: 1.4rem;
+			background: url(/style/img/qw1.png) no-repeat .8rem center;
+			background-size:  auto 1.5rem;
+		}
+		.bottom li .li-left i{
+			display: block;
+			padding-left: 3.3rem;
+			font-size: 1.4rem;
+			color: #333;
+			font-style: normal;
+			background: url(/style/img/wq1.png) no-repeat .8rem center;
+			background-size:  auto 1.5rem;
+		}
+		.bottom li .li-right a{
+			font-size: 1.4rem;
+			color: #fff;
+			padding: .3rem 1rem;
+			background-color: #1fb25a;
+			margin-right: .5rem;
+			border-radius: .2rem;
+		}
+		.bottom li .li-left i.on{
+			display: block;
+			padding-left: 3.3rem;
+			font-size: 1.4rem;
+			background: url(/style/img/wq1.png) no-repeat .8rem center;
+			background-size:  auto 1.5rem;
+		}
+        </style>
+    </head>
+    <body class='bc1'>
+        <div class='loading'><img src="/style/img/loading_more.gif" style='width:auto'></div>
+        <div class='warp '>
+            <div class='top'>
+            	<div class='swiper-wrapper'>
+					<foreach name="sensorData" key="k" item="vo">
+						<div class='swiper-slide'>
+							<div id='q<{$k}>'></div>
+						</div>
+					</foreach>
+
+            	</div>
+            	<div class='swiper-pagination'></div>
+            </div>
+            <div class='bottom'>
+            	<ul>
+
+					<foreach name="sensorData" key="k" item="vo">
+						<div class='swiper-slide'>
+							<li>
+								<div class='li-left'><span><{$vo.param_name}></span></div>
+								<div class='li-right'><span><{$vo.value}><{$vo.param_unit}></span></div>
+							</li>
+						</div>
+					</foreach>
+
+					<li>
+						<div class='li-left'><i>监控视频</i></div>
+						<div class='li-right'><a href="<{:u('/Ygl/StatisApi/getDeviceInfo',array('id'=>$deviceInfo['id']))}>">查看</a></div>
+					</li>
+
+            	</ul>
+            </div>
+        </div>
+        <script type="text/javascript" src='/style/js/jquery-1.9.0.min.js'></script>
+        <script type="text/javascript" src='/style/js/swiper.min.js'></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+
+        <script type="text/javascript">
+        $('.loading').hide();
+        var swiper = new Swiper ('.top', {
+                pagination: '.swiper-pagination',
+                autoplay: false,
+                speed:300,
+                loop : true,
+            })
+        </script>
+
+		<foreach name="sensorData" item="vo" key="k">
+           <script type="text/javascript">
+            var dom = document.getElementById("q<{$k}>");
+          	var myChart<{$k}>= echarts.init(dom);
+          	var app = {};
+          	option<{$k}> = null;
+          	option<{$k}> = {
+              	tooltip : {
+                  	formatter: "{a} <br/>{b} : {c}℃", 
+              	},
+              	
+              	series: [
+                  	{
+                      	name: '环境温度',
+                      	type: 'gauge',
+                      	radius: '100%',
+						min:<{$vo.min}>,
+					    max:<{$vo.max}>,
+                      	axisLine: {  
+                           // 坐标轴线
+                          	lineStyle: {
+                           	color:[[0.2, '#91c7ae'], [0.8, '#000'], [1, '#c23531']],           // 属性lineStyle控制线条样式
+                              	width: 10
+                         	}
+                      	},
+                      	detail : {  
+                            formatter : '{value}<{$vo.param_unit}>',
+                            textStyle : { // 其余属性默认使用全局文本样式，详见TEXTSTYLE  
+                                color : 'auto',  
+                                fontWeight : 'bolder',  
+                                fontSize : 12 
+                            }  
+                        },
+                      	axisTick: {            // 坐标轴小标记
+                        	length: 10,        // 属性length控制线长
+                        	lineStyle: {       // 属性lineStyle控制线条样式
+                            	color: 'auto'
+                        	}
+                      	},
+                    	splitLine: {           // 分隔线
+                        	length: 15,         // 属性length控制线长
+                        	lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                            	color: 'auto'
+                        	}
+                    	},
+                    	title : {
+                        	textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                           		fontWeight: 'bolder',
+                            	fontSize: 14,
+                            	color:'#333',
+                            	fontWeight:'normal'
+                        	}
+                    	},
+                      	detail: {
+                      		formatter:'{value}<{$vo.param_unit}>',
+                      		textStyle : { // 其余属性默认使用全局文本样式，详见TEXTSTYLE  
+                                color : 'auto',  
+                                fontWeight : 'bolder',  
+                                fontSize : 12 
+                            }  
+                        },
+						data: [{value:<{$vo.value}>, name: '<{$vo.param_name}>'}]
+                  }
+              ]
+          };
+          if (option<{$k}> && typeof option<{$k}> === "object") {
+              myChart<{$k}>.setOption(option<{$k}>, true);
+          }
+       </script>
+	    </foreach>
+    </body>
+</html>

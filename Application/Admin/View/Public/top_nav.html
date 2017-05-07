@@ -1,0 +1,107 @@
+
+<div class='wr-tit'>
+
+  <div class='yc-nav'>
+    <ul class='nav nav-list bs-docs-sidenav nav-collapse collapse'>
+
+      <foreach name="left_menu" item="vo">
+          <li <notempty name="level_one_id"><eq name="level_one_id"  value="$vo.level_one.id">class="on"</eq></notempty>>
+              <a <notempty name='vo.level_one.path'>href="{:u($vo['level_one']['path'])}"<else/>href="javascript:;"</notempty>>
+                <i class="iconfont {$vo.level_one.icon}"></i>{$vo.level_one.name}
+              </a>
+            <notempty name="vo.child">
+              <div  <notempty name="level_one_id"><eq name="level_one_id"  value="$vo.level_one.id">style="display:block"</eq></notempty>>
+                <foreach name="vo.child" item="vv">
+                  <a <notempty name='vv.path'>href="{:u($vv['path'])}"<else/>href="javascript:;"</notempty>  <eq name="level_second_id"  value="$vv.id">class="on"</eq>> <i class="iconfont {$vv.icon}"  ></i>{$vv.name}</a>
+                </foreach>
+              </div>
+            </notempty>
+          </li>
+      </foreach>
+    </ul>
+  </div>
+<div class="toplogo"><img src="_img_/wle.png">智能物联控制管理平台</div>
+  <ul class="nav navbar-nav navbar-nav1">
+
+      <li class="active"><a href="{:u('/Admin/Index/commonIndex')}">首页</a></li>
+      <!-- <li><a href="#about">关于</a></li>
+      <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">Contact <b class="caret"></b></a> -->
+        <!-- <ul class="dropdown-menu">
+          <li><a href="#">关于</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li> -->
+          <!-- <li class="dropdown-submenu"><a href="#">Sub menu</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+            </ul>
+          </li> -->
+        </ul>
+      </li>
+      </ul>
+
+    <ul class="nav navbar-nav navbar-right user-nav">
+            <li class="dropdown profile_menu">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                <img alt="Avatar" src="/App/Admin/View/Common/img/vf_013.png">
+                <span style="font-size:14px;">{$userInfo.real_name}</span>
+                <b class="caret">
+                </b>
+              </a>
+              <ul class="dropdown-menu">
+
+                <li><a href="{:u('/admin/user/revisePass')}">修改密码</a></li>
+                <li><a href="{:u('/admin/Login/loginout')}">退出</a></li>
+              </ul>
+            </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right not-nav">
+      <li class="button dropdown"><a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-comments"></i></a>
+        <ul class="dropdown-menu messages">
+          <li>
+            <div class="nano nscroller has-scrollbar">
+              <div class="content" tabindex="0" style="right: -17px;">
+                <ul>
+                </ul>
+              </div>
+            <div class="pane" style="display: none;"><div class="slider" style="height: 20px; top: 0px;"></div></div></div>
+            <ul class="foot">
+              <li><a href="#">View all messages </a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="button dropdown"><a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-globe"></i><span class="bubble">2</span></a>
+        <ul class="dropdown-menu">
+          <li>
+            <div class="nano nscroller has-scrollbar">
+              <div class="content" tabindex="0" style="right: -17px;">
+                <ul>
+
+                </ul>
+              </div>
+            <div class="pane" style="display: none;"><div class="slider" style="height: 20px; top: 0px;"></div></div></div>
+            <ul class="foot">
+              <li><a href="#">View all activity </a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="button"><a href="javascript:;" class="speech-button"><i class="fa fa-microphone"></i></a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+    $('.fr> a').hover(function(event) {
+        /* Act on the event */
+        $(this).siblings('div').addClass('on');
+    },function(){});
+    $('.fr').hover(function(){
+
+    },function(){
+        $(this).find('div').removeClass('on');
+    })
+</script>

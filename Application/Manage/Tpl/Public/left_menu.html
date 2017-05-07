@@ -1,0 +1,23 @@
+<div class="page-sidebar-wrapper" id="main-menu-wrapper">
+    <div>
+        <a href="" style="background-color:#179d24" class='fbxx' >发布信息</a>
+        <ul class='wraplist' style='border-top:1xp solid #3e4359'>
+            <volist name="left_menu" id="vo">
+                <li <if condition="$liclass eq $vo['level_tow']['action_code']"> class="open" </if>>
+                <a href="javascript:;">
+                    <i class="fa  fa-pie-chart"></i>
+                    <span class="title"><{$vo.level_tow.action_name}></span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu" <if condition="$liclass eq $vo['level_tow']['action_code']"> style="display: block;" </if>  >
+                    <volist name="vo.child"  id="child">
+                        <li>
+                            <a <eq name="child.action_code" value="$aclass" > class="active" </eq> href="<{$child.action_url}>" ><{$child.action_name}></a>
+                        </li>
+                    </volist>
+                </ul>
+                </li>
+            </volist>
+        </ul>
+    </div>
+</div>
